@@ -15,7 +15,7 @@
   \*********************/
 /***/ (() => {
 
-eval("var placeholder = document.getElementById('identiconPlaceholder');\nplaceholder.innerHTML = jdenticon.toSvg('icon values asdfjfasd df', 200);\nconsole.log(placeholder);\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
+eval("var placeholder = document.getElementById('identiconPlaceholder');\nplaceholder.innerHTML = jdenticon.toSvg('icon values asdfjfasd df i missed the part where that is my problem', 200);\nconsole.log(placeholder);\nvar placeholder2 = document.getElementById('identiconPlaceholder2');\nplaceholder2.innerHTML = jdenticon.toSvg('icon values asdfjfasd df i missed the part where that is my problem milkk mamia', 200);\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
 
 /***/ }),
 

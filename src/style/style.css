@@ -77,7 +77,7 @@ nav.main-navbar > h2 > a {
   text-decoration: none;
 }
 
-nav.main-navbar > ion-icon:first-child {
+nav.main-navbar > a:first-child {
   margin-right: 1.5rem;
 }
 
@@ -103,6 +103,7 @@ nav.main-navbar button:active {
   border-right: solid var(--COLOR-ACCENT) 1px;
 }
 
+/* Main part ----------------------------------------------------------------*/
 main {
   flex-grow: 1;
 }

@@ -1,0 +1,90 @@
+/*!***********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/style.css ***!
+  \***********************************************************************/
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --COLOR-ACCENT: rgb(255 224 138);
+  --COLOR-BACKGROUND: rgb(65 60 80);
+  --COLOR-BAR: rgb(42 39 52);
+  --COLOR-MAIN: hsl(254 29% 80%);
+  --COLOR-ESC: hsl(255 16% 20%);
+}
+
+body,
+:root {
+  padding: 0;
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Predefined class ----------------------------------------------------------*/
+.flex-horizontal,
+.flex-vertical {
+  display: flex;
+  align-items: center;
+}
+
+.flex-vertical {
+  flex-direction: vertical;
+}
+
+.accent {
+  color: var(--COLOR-ACCENT);
+}
+
+/* App wrapper ---------------------------------------------------------------*/
+.app-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--COLOR-BACKGROUND);
+}
+
+/* Main navbar ---------------------------------------------------------------*/
+nav.main-navbar {
+  height: 3rem;
+  background-color: var(--COLOR-BAR);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+nav.main-navbar > :nth-last-child(2) {
+  margin-right: auto; /* Always push info icon to right edge */
+}
+
+nav.main-navbar > h2 {
+  letter-spacing: 0.1rem;
+}
+
+nav.main-navbar > h2 > a {
+  color: var(--COLOR-ACCENT);
+  text-decoration: none;
+}
+
+ion-icon {
+  font-size: 2rem;
+}
+
+nav.main-navbar button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+}
+
+nav.main-navbar button:hover {
+  background-color: var(--COLOR-ESC);
+}
+
+nav.main-navbar button:active {
+  border-left: solid var(--COLOR-ACCENT) 1px;
+  border-right: solid var(--COLOR-ACCENT) 1px;
+}
+

@@ -1,5 +1,5 @@
 const placeholder = document.getElementById('identiconPlaceholder');
-placeholder.innerHTML = jdenticon.toSvg('icon values asdfjfasd df i missed the part where that is my problem', 200);
+placeholder.innerHTML = jdenticon.toSvg('icon values asdfjfaseaasdfknkfjkd df i missed the part where that is my problem', 200);
 
 console.log(placeholder);
 

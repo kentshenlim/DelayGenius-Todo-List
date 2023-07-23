@@ -1,3 +1,13 @@
+@font-face {
+  font-family: quicksand;
+  src: url(../assets/font/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Belanosima;
+  src: url(../assets/font/Belanosima-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -28,7 +38,7 @@ button:hover {
 }
 
 .flex-vertical {
-  flex-direction: vertical;
+  flex-direction: column;
 }
 
 .accent {
@@ -45,9 +55,12 @@ button:hover {
 /* Main navbar ---------------------------------------------------------------*/
 nav.main-navbar {
   height: 3rem;
+  width: 100%;
   background-color: var(--COLOR-BAR);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 nav.main-navbar > :nth-last-child(2) {
@@ -56,11 +69,16 @@ nav.main-navbar > :nth-last-child(2) {
 
 nav.main-navbar > h2 {
   letter-spacing: 0.1rem;
+  font-family: quicksand;
 }
 
 nav.main-navbar > h2 > a {
   color: var(--COLOR-ACCENT);
   text-decoration: none;
+}
+
+nav.main-navbar > ion-icon:first-child {
+  margin-right: 1.5rem;
 }
 
 ion-icon {
@@ -83,4 +101,8 @@ nav.main-navbar button:hover {
 nav.main-navbar button:active {
   border-left: solid var(--COLOR-ACCENT) 1px;
   border-right: solid var(--COLOR-ACCENT) 1px;
+}
+
+main {
+  flex-grow: 1;
 }

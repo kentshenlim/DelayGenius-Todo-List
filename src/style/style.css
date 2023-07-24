@@ -126,12 +126,9 @@ div.content-center {
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: var(--COLOR-ESC);
+  align-items: stretch;
   /* overflow-y: auto; */
   /* height: calc(100vh - 4rem); */
-}
-
-div.content-center > * {
-  flex: 0 0 0;
 }
 
 header.content-center--header {
@@ -153,9 +150,12 @@ header.content-center--header > button:hover {
   font-size: 1.5rem;
 }
 
-.all-task-wrapper {
+.card-shelf {
   width: 100%;
   margin: 0 auto;
+  border: solid red 3px;
+  flex: 1 1 0;
+  overflow-y: auto;
 }
 
 /* Main left -----------------------------------------------------------------*/

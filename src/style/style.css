@@ -114,21 +114,17 @@ a {
 main.content {
   flex-grow: 1;
   width: 100%;
-  border: solid red 3px;
   align-items: stretch;
   font-family: Belanosima;
 }
 
 /* Main center ---------------------------------------------------------------*/
 div.content-center {
-  border: solid blue 3px;
   flex-grow: 1;
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: var(--COLOR-ESC);
   align-items: stretch;
-  /* overflow-y: auto; */
-  /* height: calc(100vh - 4rem); */
 }
 
 header.content-center--header {
@@ -146,7 +142,39 @@ header.content-center--header > button:hover {
   background-color: var(--COLOR-ESC2);
 }
 
-.burger-icon {
+div.content-center--input {
+  height: 3.4rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+}
+
+div.add-form {
+  width: 98.5%;
+  background-color: var(--COLOR-ESC2);
+  border-radius: 0.3rem;
+  padding-left: 1rem;
+  gap: 1rem;
+}
+
+input.add-task {
+  height: 100%;
+  flex: 1;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+
+input.add-task:focus {
+  outline-width: 0;
+}
+
+.burger-icon,
+.add-icon {
   font-size: 1.5rem;
 }
 

@@ -146,7 +146,6 @@ header.content-center--header > button:hover {
 }
 
 div.content-center--input {
-  height: 3.4rem;
   padding-left: 0.1rem;
   padding-right: 0.1rem;
   width: 100%;
@@ -155,29 +154,58 @@ div.content-center--input {
   margin-bottom: 0.5rem;
 }
 
-div.add-form {
+div.add-form,
+div.date-form {
   width: 98.5%;
-  background-color: var(--COLOR-ESC2);
+  height: 3.4rem;
   border-radius: 0.3rem;
   padding-left: 1rem;
   gap: 1rem;
 }
 
+div.add-form {
+  background-color: var(--COLOR-ESC2);
+}
+
+div.date-form {
+  height: 0; /* Hidden by default */
+  overflow: hidden;
+  height: 3.4rem; /* Delete after development */
+  transition: all ease-in-out 0.3s;
+  background-color: var(--COLOR-BACKGROUND);
+}
+
+div.add-form:has(input:focus) + div {
+  height: 3.4rem;
+}
+
 input.add-task {
+  /* Might be general styling */
   height: 100%;
   flex: 1;
   border-radius: 0.3rem;
   border: none;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  color: var(--COLOR-MAIN);
+  font-family: Belanosima;
 }
 
 input.add-task:focus {
   outline-width: 0;
 }
 
+input.add-date {
+  font-size: 1.2rem;
+  color: var(--COLOR-MAIN);
+  background-color: transparent;
+  border: none;
+  font-family: Belanosima;
+}
+
 .burger-icon,
-.add-icon {
+.add-icon,
+.calendar-icon {
   font-size: 1.5rem;
 }
 
@@ -201,6 +229,9 @@ input.add-task:focus {
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
   box-shadow: 0px 0px 5px var(--COLOR-ESC2);
+  padding-left: 1rem;
+  gap: 1rem;
+  font-size: 1.2rem;
 }
 
 .task-card:hover {

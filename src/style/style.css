@@ -14,10 +14,12 @@
 
 :root {
   --COLOR-ACCENT: rgb(255 224 138);
+  --COLOR-MAIN: hsl(254 29% 80%);
   --COLOR-BACKGROUND: rgb(65 60 80);
   --COLOR-BAR: rgb(42 39 52);
-  --COLOR-MAIN: hsl(254 29% 80%);
+  --COLOR-CARD: rgb(48 44 62);
   --COLOR-ESC: hsl(255deg 13.9% 29.03%);
+  --COLOR-ESC2: hsl(255deg 11.49% 38.7%);
 }
 
 body,
@@ -67,12 +69,12 @@ a {
 
 /* Top navbar ----------------------------------------------------------------*/
 .navbar-top {
-  height: 3rem;
+  height: 3.3rem;
   width: 100%;
   background-color: var(--COLOR-BAR);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  flex: 1 1 0;
+  flex: 0 0 0;
 }
 
 .navbar-top > * {
@@ -83,7 +85,7 @@ a {
 }
 
 .navbar-top > *:hover {
-  background-color: var(--COLOR-ESC);
+  background-color: var(--COLOR-ESC2);
 }
 
 .navbar-top > *:active {
@@ -108,27 +110,47 @@ a {
   font-size: 2rem;
 }
 
-/* Main part -----------------------------------------------------------------*/
-main {
+/* Content wrapper -----------------------------------------------------------*/
+main.content {
   flex-grow: 1;
   width: 100%;
   border: solid red 3px;
-  align-items: stretch !important;
-  font-family: quicksand;
+  align-items: stretch;
+  font-family: Belanosima;
 }
 
 /* Main center ---------------------------------------------------------------*/
-.main-center {
+div.content-center {
   border: solid blue 3px;
   flex-grow: 1;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: var(--COLOR-ESC);
   /* overflow-y: auto; */
   /* height: calc(100vh - 4rem); */
 }
 
-.main-center-header {
-  border: solid green 3px;
+div.content-center > * {
+  flex: 0 0 0;
+}
+
+header.content-center--header {
+  height: 3.5rem;
+  font-family: quicksand;
+}
+
+header.content-center--header > * {
+  height: 100%;
+  margin: 0;
+  margin-right: 0.5rem;
+}
+
+header.content-center--header > button:hover {
+  background-color: var(--COLOR-ESC2);
+}
+
+.burger-icon {
+  font-size: 1.5rem;
 }
 
 .all-task-wrapper {
@@ -138,11 +160,16 @@ main {
 
 /* Main left -----------------------------------------------------------------*/
 
-/* Task panel ----------------------------------------------------------------*/
-.task-panel {
-  height: 3rem;
+/* Task card -----------------------------------------------------------------*/
+.task-card {
+  height: 3.4rem;
   width: 100%;
-  background-color: var(--COLOR-ESC);
+  border-radius: 0.5rem;
+  background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
+}
+
+.task-card:hover {
+  background-color: var(--COLOR-ESC2);
 }

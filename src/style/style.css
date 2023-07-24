@@ -17,7 +17,7 @@
   --COLOR-BACKGROUND: rgb(65 60 80);
   --COLOR-BAR: rgb(42 39 52);
   --COLOR-MAIN: hsl(254 29% 80%);
-  --COLOR-ESC: hsl(255 16% 20%);
+  --COLOR-ESC: hsl(255deg 13.9% 29.03%);
 }
 
 body,
@@ -39,6 +39,10 @@ ion-icon {
   color: var(--COLOR-ACCENT);
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Predefined class ----------------------------------------------------------*/
 .flex-horizontal,
 .flex-vertical {
@@ -50,7 +54,7 @@ ion-icon {
   flex-direction: column;
 }
 
-.accent {
+.accent-text {
   color: var(--COLOR-ACCENT);
 }
 
@@ -62,56 +66,46 @@ ion-icon {
 }
 
 /* Top navbar ----------------------------------------------------------------*/
-nav.main-navbar {
+.navbar-top {
   height: 3rem;
   width: 100%;
   background-color: var(--COLOR-BAR);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  flex-grow: 0;
-  flex-shrink: 0;
+  flex: 1 1 0;
 }
 
-nav.main-navbar > :nth-last-child(2) {
+.navbar-top > * {
+  height: 100%;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navbar-top > *:hover {
+  background-color: var(--COLOR-ESC);
+}
+
+.navbar-top > *:active {
+  border-left: solid var(--COLOR-ACCENT) 1px;
+  border-right: solid var(--COLOR-ACCENT) 1px;
+}
+
+.navbar-top > :nth-last-child(2) {
   margin-right: auto; /* Always push info icon to right edge */
 }
 
-nav.main-navbar > h2 {
+.navbar-top--title {
   letter-spacing: 0.1rem;
   font-family: quicksand;
 }
 
-nav.main-navbar > h2 > a {
-  color: var(--COLOR-ACCENT);
-  text-decoration: none;
-}
-
-nav.main-navbar > a:first-child {
-  margin-right: 1.5rem;
-}
-
-nav.main-navbar > a ion-icon {
+.title-icon {
   font-size: 1.5rem;
 }
 
-ion-icon {
+.info-icon {
   font-size: 2rem;
-}
-
-nav.main-navbar button {
-  padding: 0;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  justify-content: center;
-}
-
-nav.main-navbar button:hover {
-  background-color: var(--COLOR-ESC);
-}
-
-nav.main-navbar button:active {
-  border-left: solid var(--COLOR-ACCENT) 1px;
-  border-right: solid var(--COLOR-ACCENT) 1px;
 }
 
 /* Main part -----------------------------------------------------------------*/

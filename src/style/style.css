@@ -150,11 +150,6 @@ div.content-center--input {
   margin-bottom: 0.5rem;
 }
 
-div.add-form,
-div.date-form {
-  gap: 1rem; /* Between icon and symbol */
-}
-
 div.add-form {
   background-color: var(--COLOR-ESC2);
 }
@@ -162,12 +157,12 @@ div.add-form {
 div.date-form {
   height: 0; /* Hidden by default */
   overflow: hidden;
-  height: 3.4rem; /* Delete after development */
   transition: all ease-in-out 0.3s;
   background-color: var(--COLOR-BACKGROUND);
 }
 
-div.add-form:has(input:focus) + div {
+div.add-form:has(input.clicked) + div {
+  /* Add class "clicked" to activated input */
   height: 3.4rem;
 }
 
@@ -214,9 +209,18 @@ button.task-card {
   padding-left: 1rem;
 }
 
+div.date-form {
+  height: 0;
+}
+
 div.add-form,
 div.date-form {
   width: calc(99% - 0.5rem); /* Reserve 0.5 rem because .task-card has scroll */
+}
+
+div.add-form,
+div.date-form {
+  gap: 1rem; /* Between icon and symbol */
 }
 
 /* Task card -----------------------------------------------------------------*/
@@ -225,7 +229,7 @@ button.task-card {
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
-  gap: 1rem;
+  gap: 1.1rem; /* Inner, slightly > 1 rem*/
   font-size: 1.2rem;
 }
 

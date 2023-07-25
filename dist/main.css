@@ -190,6 +190,8 @@ input.add-date {
   background-color: transparent;
   border: none;
   font-family: Belanosima;
+  color-scheme: dark;
+  filter: brightness(80%);
 }
 
 .card-shelf {
@@ -214,7 +216,7 @@ button.task-card {
 }
 
 div.date-form {
-  height: 0;
+  height: 3.4rem;
 }
 
 div.add-form,

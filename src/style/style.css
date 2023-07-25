@@ -146,14 +146,13 @@ header.content-center--header > button:hover {
 }
 
 div.content-center--input {
-  justify-content: flex-start; /* Left-sided */
   align-items: stretch; /* 100% horizontal */
   margin-bottom: 0.5rem;
 }
 
 div.add-form,
 div.date-form {
-  gap: 1rem;
+  gap: 1rem; /* Between icon and symbol */
 }
 
 div.add-form {
@@ -217,15 +216,12 @@ button.task-card {
 
 div.add-form,
 div.date-form {
-  width: calc(99% - 0.5rem);
-}
-
-button.task-card {
-  width: 99%;
+  width: calc(99% - 0.5rem); /* Reserve 0.5 rem because .task-card has scroll */
 }
 
 /* Task card -----------------------------------------------------------------*/
-.task-card {
+button.task-card {
+  width: 99%;
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
@@ -233,12 +229,12 @@ button.task-card {
   font-size: 1.2rem;
 }
 
-.task-card:hover {
+button.task-card:hover {
   background-color: var(--COLOR-ESC);
   border: solid var(--COLOR-ESC2) 1px;
 }
 
-.task-card:not(:first-child) {
+button.task-card:not(:first-child) {
   margin-top: 0.5rem;
 }
 

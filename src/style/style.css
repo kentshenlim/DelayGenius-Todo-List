@@ -207,6 +207,7 @@ button.task-card {
   height: 3.4rem;
   border-radius: 0.3rem;
   padding-left: 1rem;
+  gap: 1rem; /* Between icon and symbol */
 }
 
 div.date-form {
@@ -218,19 +219,22 @@ div.date-form {
   width: calc(99% - 0.5rem); /* Reserve 0.5 rem because .task-card has scroll */
 }
 
-div.add-form,
-div.date-form {
-  gap: 1rem; /* Between icon and symbol */
-}
-
 /* Task card -----------------------------------------------------------------*/
 button.task-card {
   width: 99%;
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
-  gap: 1.1rem; /* Inner, slightly > 1 rem*/
   font-size: 1.2rem;
+}
+
+button.task-card > * {
+  height: 100%;
+}
+
+button.task-card > .identicon > svg {
+  height: 100%;
+  width: auto;
 }
 
 button.task-card:hover {

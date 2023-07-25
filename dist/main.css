@@ -232,7 +232,6 @@ button.task-card {
 
 button.task-card > * {
   height: 100%;
-  border: solid green 3px;
 }
 
 button.task-card > .identicon > svg {
@@ -275,6 +274,7 @@ button.task-card .task-card--details {
 
 .task-card--details li {
   list-style: none;
+  display: inline;
 }
 
 /* Main left -----------------------------------------------------------------*/

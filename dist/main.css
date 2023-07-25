@@ -274,7 +274,7 @@ button.task-card .task-card--details {
   padding: 0;
 }
 
-.task-card--details * {
+.task-card--details li {
   list-style: none;
   display: inline;
 }

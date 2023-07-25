@@ -228,11 +228,11 @@ button.task-card {
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
-  font-size: 1.2rem;
 }
 
 button.task-card > * {
   height: 100%;
+  border: solid green 3px;
 }
 
 button.task-card > .identicon > svg {
@@ -247,6 +247,34 @@ button.task-card:hover {
 
 button.task-card:not(:first-child) {
   margin-top: 0.5rem;
+}
+
+button.task-card .task-card--details {
+  flex: 1 1 0;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.task-card--details > * {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.task-card--details h3 {
+  font-size: 1.2rem;
+}
+
+.task-card--details ul {
+  padding: 0;
+}
+
+.task-card--details li {
+  list-style: none;
 }
 
 /* Main left -----------------------------------------------------------------*/

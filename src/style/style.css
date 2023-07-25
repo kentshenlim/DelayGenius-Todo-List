@@ -137,7 +137,6 @@ header.content-center--header {
 }
 
 header.content-center--header > * {
-  height: 100%;
   margin: 0;
   margin-right: 0.5rem;
 }
@@ -147,20 +146,13 @@ header.content-center--header > button:hover {
 }
 
 div.content-center--input {
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
-  width: 100%;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: flex-start; /* Left-sided */
+  align-items: stretch; /* 100% horizontal */
   margin-bottom: 0.5rem;
 }
 
 div.add-form,
 div.date-form {
-  width: 98.5%;
-  height: 3.4rem;
-  border-radius: 0.3rem;
-  padding-left: 1rem;
   gap: 1rem;
 }
 
@@ -204,25 +196,39 @@ input.add-date {
 }
 
 .card-shelf {
-  width: 100%;
-  margin: 0 auto;
-  flex: 1 1 0;
+  flex: 1 1 0; /* Take all remaining vertical space of .content-center */
   overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+div.content-center--input,
+.card-shelf {
   padding-left: 0.1rem;
   padding-right: 0.1rem;
 }
 
-/* Main left -----------------------------------------------------------------*/
+div.add-form,
+div.date-form,
+button.task-card {
+  height: 3.4rem;
+  border-radius: 0.3rem;
+  padding-left: 1rem;
+}
+
+div.add-form,
+div.date-form {
+  width: calc(99% - 0.5rem);
+}
+
+button.task-card {
+  width: 99%;
+}
 
 /* Task card -----------------------------------------------------------------*/
 .task-card {
-  height: 3.4rem;
-  width: 99%;
-  border-radius: 0.3rem;
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
-  padding-left: 1rem;
   gap: 1rem;
   font-size: 1.2rem;
 }
@@ -235,3 +241,5 @@ input.add-date {
 .task-card:not(:first-child) {
   margin-top: 0.5rem;
 }
+
+/* Main left -----------------------------------------------------------------*/

@@ -118,13 +118,17 @@ main.content {
   font-family: Belanosima;
 }
 
-/* Main center ---------------------------------------------------------------*/
+/* Main center and form elements ---------------------------------------------*/
 div.content-center {
   flex-grow: 1;
-  padding-left: 1rem;
-  padding-right: 1rem;
   background-color: var(--COLOR-ESC);
   align-items: stretch;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+div.content-center ion-icon {
+  font-size: 1.5rem;
 }
 
 header.content-center--header {
@@ -177,7 +181,6 @@ div.add-form:has(input:focus) + div {
 }
 
 input.add-task {
-  /* Might be general styling */
   height: 100%;
   flex: 1;
   border-radius: 0.3rem;
@@ -189,7 +192,7 @@ input.add-task {
 }
 
 input.add-task:focus {
-  outline-width: 0;
+  outline-width: 0; /* Do not highlight*/
 }
 
 input.add-date {
@@ -198,12 +201,6 @@ input.add-date {
   background-color: transparent;
   border: none;
   font-family: Belanosima;
-}
-
-.burger-icon,
-.add-icon,
-.calendar-icon {
-  font-size: 1.5rem;
 }
 
 .card-shelf {
@@ -225,14 +222,14 @@ input.add-date {
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
-  box-shadow: 0px 0px 5px var(--COLOR-ESC2);
   padding-left: 1rem;
   gap: 1rem;
   font-size: 1.2rem;
 }
 
 .task-card:hover {
-  background-color: var(--COLOR-ESC2);
+  background-color: var(--COLOR-ESC);
+  border: solid var(--COLOR-ESC2) 1px;
 }
 
 .task-card:not(:first-child) {

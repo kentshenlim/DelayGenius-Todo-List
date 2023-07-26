@@ -6,7 +6,6 @@ placeholder2.innerHTML = jdenticon.toSvg(
 );
 
 const jdenticons = document.querySelectorAll('.jdenticon');
-console.log(jdenticons);
 jdenticons.forEach((j) => {
   j.innerHTML = jdenticon.toSvg('name of the task', 200);
 });

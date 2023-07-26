@@ -234,6 +234,10 @@ button.task-card {
 }
 
 div.date-form {
+  height: 0;
+}
+
+div.date-form.active {
   height: 3.4rem;
 }
 

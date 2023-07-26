@@ -15,7 +15,7 @@
   \*********************/
 /***/ (() => {
 
-eval("/* eslint-disable no-undef */\nvar placeholder2 = document.getElementById('identiconPlaceholder2');\nplaceholder2.innerHTML = jdenticon.toSvg('name of the task', 200);\nvar jdenticons = document.querySelectorAll('.jdenticon');\nconsole.log(jdenticons);\njdenticons.forEach(function (j) {\n  j.innerHTML = jdenticon.toSvg('name of the task', 200);\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
+eval("/* eslint-disable no-undef */\nvar placeholder2 = document.getElementById('identiconPlaceholder2');\nplaceholder2.innerHTML = jdenticon.toSvg('name of the task', 200);\nvar jdenticons = document.querySelectorAll('.jdenticon');\njdenticons.forEach(function (j) {\n  j.innerHTML = jdenticon.toSvg('name of the task', 200);\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
 
 /***/ }),
 
@@ -26,7 +26,18 @@ eval("/* eslint-disable no-undef */\nvar placeholder2 = document.getElementById(
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_components_TaskCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/TaskCard */ \"./src/js/components/TaskCard.js\");\n\n\n\n\nvar contentCenter = document.getElementById('content-center');\nvar cardShelf = document.getElementById('card-shelf');\nvar p1 = (0,_js_components_TaskCard__WEBPACK_IMPORTED_MODULE_3__[\"default\"])('What the fuck', [{\n  disp: 'An example task again',\n  color: 'green'\n}]);\ncardShelf.append(p1);\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _js_addForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/addForm */ \"./src/js/addForm.js\");\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_components_TaskCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/components/TaskCard */ \"./src/js/components/TaskCard.js\");\n\n\n\n\n\nvar contentCenter = document.getElementById('content-center');\nvar cardShelf = document.getElementById('card-shelf');\nvar p1 = (0,_js_components_TaskCard__WEBPACK_IMPORTED_MODULE_4__[\"default\"])('What the fuck', [{\n  disp: 'An example task again',\n  color: 'green'\n}]);\ncardShelf.append(p1);\ndocument.addEventListener('DOMContentLoaded', function () {\n  return (0,_js_addForm__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/addForm.js":
+/*!***************************!*\
+  !*** ./src/js/addForm.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_pubSub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/pubSub */ \"./src/utils/pubSub.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {\n  // Cache DOM\n  var textInput = document.getElementById('add-task');\n  var dateInput = document.getElementById('add-date');\n  var addBtn = document.getElementById('submit-task-card');\n  var dateForm = document.querySelector('div.date-form');\n  function clearInput() {\n    textInput.value = '';\n    dateInput.value = '';\n  }\n  function handleKeyDown() {\n    if (textInput.value.length) addBtn.classList.add('active');else addBtn.classList.remove('active');\n  }\n  function handleClickAdd() {\n    if (!textInput.value.length) return;\n    _utils_pubSub__WEBPACK_IMPORTED_MODULE_0__[\"default\"].publish('add_task');\n  }\n  function handleFocus() {\n    dateForm.classList.add('active');\n  }\n  textInput.onkeydown = handleKeyDown;\n  addBtn.onclick = handleClickAdd;\n  textInput.onfocus = handleFocus;\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_0__[\"default\"].subscribe('add_task', clearInput);\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/js/addForm.js?");
 
 /***/ }),
 
@@ -49,6 +60,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TaskCardNote)\n/* harmony export */ });\nfunction TaskCardNote(arr) {\n  /*\r\n  arr: Array of objects, [{disp, color}]\r\n  */\n  var resNode = document.createElement('ul');\n  arr.forEach(function (element) {\n    var disp = element.disp,\n      color = element.color;\n    var li = document.createElement('li');\n    li.textContent = disp;\n    li.style.color = color ? 'auto' : color;\n    resNode.appendChild(li);\n  });\n  return resNode;\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/TaskCardNote.js?");
+
+/***/ }),
+
+/***/ "./src/utils/pubSub.js":
+/*!*****************************!*\
+  !*** ./src/utils/pubSub.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar pubSub = function () {\n  var map = {}; // Event name => listener\n\n  function subscribe(eventName, callback) {\n    if (map[eventName] === undefined) map[eventName] = [];\n    map[eventName].push(callback);\n  }\n  function publish(eventName, data) {\n    if (map[eventName] === undefined) return;\n    var callbacks = map[eventName];\n    callbacks.forEach(function (callback) {\n      callback(data);\n    });\n  }\n  function unsubscribe(eventName, callback) {\n    if (map[eventName] === undefined) return;\n    var callbacks = map[eventName];\n    for (var i = 0; i < callbacks.length; i += 1) {\n      if (callbacks[i] === callback) {\n        // By reference\n        callbacks.splice(i, 0);\n        return;\n      }\n    }\n  }\n  return {\n    subscribe: subscribe,\n    publish: publish,\n    unsubscribe: unsubscribe\n  };\n}();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pubSub);\n\n//# sourceURL=webpack://my-webpack-project/./src/utils/pubSub.js?");
 
 /***/ }),
 

@@ -1,10 +1,9 @@
 import { nanoid } from 'nanoid';
-import pubSub from '../utils/pubSub';
 
 export default function taskStorage() {
   const storage = { a: 1 }; // nanoid => task object
 
-  function addTask(taskObj) {
+  function addTask(taskObj) { // taskObj built using Task constructor
     storage[nanoid()] = taskObj;
   }
 
@@ -22,7 +21,7 @@ export default function taskStorage() {
   }
 
   function printStorage() {
-    return storage;
+    console.log(storage);
   }
 
   return {

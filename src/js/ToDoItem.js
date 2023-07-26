@@ -1,5 +1,5 @@
 export default class ToDoItem {
-  constructor(name) {
-    this.name = name;
+  constructor(taskName) {
+    this.taskName = taskName;
   }
 }

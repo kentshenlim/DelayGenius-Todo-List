@@ -194,6 +194,24 @@ input.add-date {
   filter: brightness(80%);
 }
 
+#submit-task-card {
+  margin-left: auto;
+  margin-right: 1rem;
+  background-color: var(--COLOR-ACCENT);
+  font-family: quicksand;
+  opacity: 0.5;
+  cursor: not-allowed;
+  padding: 0.2rem;
+  border-radius: 2px;
+  color: var(--COLOR-BACKGROUND);
+}
+
+#submit-task-card.active {
+  opacity: 1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .card-shelf {
   flex: 1 1 0; /* Take all remaining vertical space of .content-center */
   overflow-y: auto;

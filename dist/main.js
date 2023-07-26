@@ -15,7 +15,7 @@
   \*********************/
 /***/ (() => {
 
-eval("var placeholder2 = document.getElementById('identiconPlaceholder2');\nplaceholder2.innerHTML = jdenticon.toSvg('name of the task', 200);\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
+eval("/* eslint-disable no-undef */\nvar placeholder2 = document.getElementById('identiconPlaceholder2');\nplaceholder2.innerHTML = jdenticon.toSvg('name of the task', 200);\nvar jdenticons = document.querySelectorAll('.jdenticon');\nconsole.log(jdenticons);\njdenticons.forEach(function (j) {\n  j.innerHTML = jdenticon.toSvg('name of the task', 200);\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/icon.js?");
 
 /***/ }),
 
@@ -26,18 +26,29 @@ eval("var placeholder2 = document.getElementById('identiconPlaceholder2');\nplac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/Header */ \"./src/js/components/Header.js\");\n\n\n\n\nvar contentCenter = document.getElementById('content-center');\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_components_TaskCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/TaskCard */ \"./src/js/components/TaskCard.js\");\n\n\n\n\nvar contentCenter = document.getElementById('content-center');\nvar cardShelf = document.getElementById('card-shelf');\nvar p1 = (0,_js_components_TaskCard__WEBPACK_IMPORTED_MODULE_3__[\"default\"])('What the fuck', [{\n  disp: 'An example task again',\n  color: 'green'\n}]);\ncardShelf.append(p1);\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/js/components/Header.js":
-/*!*************************************!*\
-  !*** ./src/js/components/Header.js ***!
-  \*************************************/
+/***/ "./src/js/components/TaskCard.js":
+/*!***************************************!*\
+  !*** ./src/js/components/TaskCard.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Header)\n/* harmony export */ });\nfunction Header(iconName, headerText) {\n  /*\r\n  iconName: string, value of name attribute in ion-icon element\r\n  headerText: string, e.g. \"Planned\", \"Important\", \"My Day\"\r\n  */\n  var resNode = document.createElement('header');\n  resNode.classList.add('content-center--header', 'flex-horizontal');\n  var btn = document.createElement('button');\n  btn.classList.add('flex-horizontal');\n  var ionIcon = document.createElement('ion-icon');\n  ionIcon.setAttribute('name', iconName);\n  btn.appendChild(ionIcon);\n  var txt = document.createElement('h2');\n  txt.classList.add('accent-text', 'flex-horizontal');\n  txt.textContent = headerText;\n  resNode.append.apply(resNode, [btn, txt]);\n  return resNode;\n}\n;\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/Header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TaskCard)\n/* harmony export */ });\n/* harmony import */ var _TaskCardNote__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskCardNote */ \"./src/js/components/TaskCardNote.js\");\n\nfunction TaskCard(taskName, taskNoteArr) {\n  /*\r\n  taskName: string, task name displayed\r\n  arr: Array of objects, [{displayString, colorString}]\r\n  */\n  var resNode = document.createElement('button');\n  resNode.classList.add('task-card', 'flex-horizontal');\n  var circle = document.createElement('ion-icon');\n  circle.setAttribute('name', 'ellipse-outline');\n  var jdenticon = document.createElement('div');\n  jdenticon.classList.add('jdenticon');\n  var details = document.createElement('div');\n  details.classList.add('task-card--details', 'flex-vertical');\n  var taskNameNode = document.createElement('h3');\n  taskNameNode.classList.add('flex-horizontal');\n  taskNameNode.textContent = taskName;\n  details.appendChild(taskNameNode);\n  var list = (0,_TaskCardNote__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(taskNoteArr);\n  details.appendChild(list);\n  resNode.append.apply(resNode, [circle, jdenticon, details]);\n  return resNode;\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/TaskCard.js?");
+
+/***/ }),
+
+/***/ "./src/js/components/TaskCardNote.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/TaskCardNote.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TaskCardNote)\n/* harmony export */ });\nfunction TaskCardNote(arr) {\n  /*\r\n  arr: Array of objects, [{disp, color}]\r\n  */\n  var resNode = document.createElement('ul');\n  arr.forEach(function (element) {\n    var disp = element.disp,\n      color = element.color;\n    var li = document.createElement('li');\n    li.textContent = disp;\n    li.style.color = color ? 'auto' : color;\n    resNode.appendChild(li);\n  });\n  return resNode;\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/TaskCardNote.js?");
 
 /***/ }),
 

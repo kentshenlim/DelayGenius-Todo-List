@@ -1,8 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "jdenticon": true
+    "es2021": true
+    // "jdenticon": true
   },
   "extends": ["airbnb-base"],
   "parserOptions": {

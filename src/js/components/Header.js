@@ -4,8 +4,10 @@ export default function Header(iconName, headerText) {
     headerText: string, e.g. "Planned", "Important", "My Day"
     */
     const resNode = document.createElement('header');
+    resNode.classList.add('content-center--header', 'flex-horizontal');
 
     const btn = document.createElement('button');
+    btn.classList.add('flex-horizontal');
 
     const ionIcon = document.createElement('ion-icon');
     ionIcon.setAttribute('name', iconName);

@@ -26,7 +26,18 @@ eval("var placeholder2 = document.getElementById('identiconPlaceholder2');\nplac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n\n\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ \"./src/icon.js\");\n/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_icon__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/Header */ \"./src/js/components/Header.js\");\n\n\n\n\nvar contentCenter = document.getElementById('content-center');\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/components/Header.js":
+/*!*************************************!*\
+  !*** ./src/js/components/Header.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Header)\n/* harmony export */ });\nfunction Header(iconName, headerText) {\n  /*\r\n  iconName: string, value of name attribute in ion-icon element\r\n  headerText: string, e.g. \"Planned\", \"Important\", \"My Day\"\r\n  */\n  var resNode = document.createElement('header');\n  resNode.classList.add('content-center--header', 'flex-horizontal');\n  var btn = document.createElement('button');\n  btn.classList.add('flex-horizontal');\n  var ionIcon = document.createElement('ion-icon');\n  ionIcon.setAttribute('name', iconName);\n  btn.appendChild(ionIcon);\n  var txt = document.createElement('h2');\n  txt.classList.add('accent-text', 'flex-horizontal');\n  txt.textContent = headerText;\n  resNode.append.apply(resNode, [btn, txt]);\n  return resNode;\n}\n;\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/Header.js?");
 
 /***/ }),
 

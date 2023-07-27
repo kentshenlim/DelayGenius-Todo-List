@@ -1,6 +1,6 @@
 import TaskCardNote from './TaskCardNote';
 
-export default function TaskCard(taskName, taskNoteArr) {
+export default function TaskCard({ taskName, dueDate }) {
   /*
   taskName: string, task name displayed
   arr: Array of objects, [{displayString, colorString}]
@@ -22,7 +22,7 @@ export default function TaskCard(taskName, taskNoteArr) {
   taskNameNode.textContent = taskName;
   details.appendChild(taskNameNode);
 
-  const list = TaskCardNote(taskNoteArr);
+  const list = TaskCardNote([{ disp: dueDate, color: 'green' }]);
   details.appendChild(list);
 
   resNode.append(...[circle, jdenticon, details]);

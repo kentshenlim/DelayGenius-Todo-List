@@ -2,9 +2,10 @@ export default class Task {
   constructor({ taskName, dueDate }) {
     this.taskName = taskName;
     this.dueDate = dueDate;
-    this.isCompleted = false;
+    this.isMyDay = false;
     this.isImportant = false;
-    this.categories = [];
+    this.isCompleted = false;
+    this.categories = new Set();
   }
 
   editTaskName(newName) {
@@ -21,5 +22,13 @@ export default class Task {
 
   toggleIsImportant() {
     this.isImportant = !this.isImportant;
+  }
+
+  addCategory(category) {
+    this.categories.add(category);
+  }
+
+  removeCategory(category) {
+    this.categories.delete(category);
   }
 }

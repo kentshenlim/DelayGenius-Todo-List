@@ -1,5 +1,8 @@
+import { nanoid } from 'nanoid';
+
 export default class Task {
   constructor({ taskName, dueDate }) {
+    this.id = nanoid();
     this.taskName = taskName;
     this.dueDate = dueDate;
     this.isMyDay = false;

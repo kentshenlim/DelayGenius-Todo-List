@@ -17,11 +17,25 @@ export default function TaskCard({ taskName, dueDate }) {
   taskName: string, task name displayed
   arr: Array of objects, [{displayString, colorString}]
   */
+  // Event handlers
+  function handleClickCircle(e) {
+    e.stopPropagation();
+    console.log('Circle clicked');
+  }
+
+  function handleClickCardBody() {
+    console.log('Click body');
+  }
+
   const resNode = document.createElement('button');
   resNode.classList.add('task-card', 'flex-horizontal');
+  resNode.onclick = handleClickCardBody;
 
   const circle = document.createElement('ion-icon');
   circle.setAttribute('name', 'ellipse-outline');
+  circle.addEventListener('mouseenter', () => circle.setAttribute('name', 'ellipse'));
+  circle.addEventListener('mouseleave', () => circle.setAttribute('name', 'ellipse-outline'));
+  circle.onclick = handleClickCircle;
 
   const jdenticon = document.createElement('div');
   jdenticon.classList.add('identicon');

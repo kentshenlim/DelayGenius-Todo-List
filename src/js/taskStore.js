@@ -1,10 +1,8 @@
-import { nanoid } from 'nanoid';
-
 export default function taskStorage() {
   const storage = { a: 1 }; // nanoid => task object
 
   function addTask(taskObj) { // taskObj built using Task constructor
-    storage[nanoid()] = taskObj;
+    storage[taskObj.id] = taskObj;
   }
 
   function removeTask(id) {

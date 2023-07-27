@@ -10,7 +10,7 @@ export default function taskStorage() {
   }
 
   function getTask(id) {
-    if (storage[id]) return false;
+    if (!storage[id]) return false;
     return storage[id];
   }
 

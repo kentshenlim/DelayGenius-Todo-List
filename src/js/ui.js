@@ -9,5 +9,9 @@ export default function ui() {
     cardShelf.appendChild(cardNode);
   }
 
+  function removeTask(id) {
+
+  }
+
   return { addTask };
 }

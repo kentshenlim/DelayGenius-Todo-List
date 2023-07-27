@@ -3,6 +3,7 @@ import differenceInDays from 'date-fns/differenceInDays';
 import isSameYear from 'date-fns/isSameYear';
 import TaskCardNote from './TaskCardNote';
 import updateJdenticon from '../../utils/jdenticon';
+import pubSub from '../../utils/pubSub';
 
 function getDateFormatObj(valueAsDate) {
   const formatStr = isSameYear(valueAsDate, new Date())
@@ -12,7 +13,7 @@ function getDateFormatObj(valueAsDate) {
   return { disp: prepend + format(valueAsDate, formatStr), color };
 }
 
-export default function TaskCard({ taskName, dueDate }) {
+export default function TaskCard({ taskName, dueDate, id }) {
   /*
   taskName: string, task name displayed
   arr: Array of objects, [{displayString, colorString}]
@@ -20,7 +21,7 @@ export default function TaskCard({ taskName, dueDate }) {
   // Event handlers
   function handleClickCircle(e) {
     e.stopPropagation();
-    console.log('Circle clicked');
+    pubSub.publish('complete_task', e.target.parentNode.getAttribute('data-id'));
   }
 
   function handleClickCardBody() {
@@ -30,6 +31,7 @@ export default function TaskCard({ taskName, dueDate }) {
   const resNode = document.createElement('button');
   resNode.classList.add('task-card', 'flex-horizontal');
   resNode.onclick = handleClickCardBody;
+  resNode.setAttribute('data-id', id);
 
   const circle = document.createElement('ion-icon');
   circle.setAttribute('name', 'ellipse-outline');

@@ -5,7 +5,7 @@ placeholder2.innerHTML = jdenticon.toSvg(
   200,
 );
 
-const jdenticons = document.querySelectorAll('.jdenticon');
-jdenticons.forEach((j) => {
-  j.innerHTML = jdenticon.toSvg('name of the task', 200);
-});
+export default function updateJdenticon(jNode, text) {
+  const p = jNode;
+  p.innerHTML = jdenticon.toSvg(text, 200);
+}

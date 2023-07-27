@@ -1,4 +1,4 @@
-import './icon';
+import './utils/jdenticon';
 import './style/style.css';
 import './style/scrollbar.css';
 import taskStore from './js/taskStore';

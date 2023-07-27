@@ -59,7 +59,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TaskCardNote)\n/* harmony export */ });\nfunction TaskCardNote(arr) {\n  /*\r\n  arr: Array of objects, [{disp, color}]\r\n  */\n  var resNode = document.createElement('ul');\n  arr.forEach(function (element) {\n    var disp = element.disp,\n      color = element.color;\n    var li = document.createElement('li');\n    li.textContent = disp;\n    li.style.color = color ? 'auto' : color;\n    resNode.appendChild(li);\n  });\n  return resNode;\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/TaskCardNote.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TaskCardNote)\n/* harmony export */ });\nfunction TaskCardNote(arr) {\n  /*\r\n  arr: Array of objects, [{disp, color}]\r\n  */\n  var resNode = document.createElement('ul');\n  arr.forEach(function (element) {\n    var disp = element.disp,\n      color = element.color;\n    var li = document.createElement('li');\n    li.textContent = disp;\n    li.style.color = color || 'auto';\n    resNode.appendChild(li);\n  });\n  return resNode;\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/components/TaskCardNote.js?");
 
 /***/ }),
 

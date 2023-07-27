@@ -8,7 +8,7 @@ export default function TaskCardNote(arr) {
     const { disp, color } = element;
     const li = document.createElement('li');
     li.textContent = disp;
-    li.style.color = color ? 'auto' : color;
+    li.style.color = color || 'auto';
     resNode.appendChild(li);
   });
 

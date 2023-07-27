@@ -16,7 +16,7 @@ export default (() => {
 
   function handleClickAdd() {
     if (!textInput.value.length) return;
-    pubSub.publish('add_task', new Task({ taskName: textInput.value, dueDate: dateInput.value }));
+    pubSub.publish('add_task', new Task({ taskName: textInput.value, dueDate: dateInput.valueAsDate }));
     textInput.value = '';
     dateInput.value = '';
     handleInputChange();

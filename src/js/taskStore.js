@@ -14,15 +14,11 @@ export default function taskStorage() {
     return storage[id];
   }
 
-  function toggleTaskImportant(id) {
-    storage[id].isImportant = !storage[id].isImportant;
-  }
-
   function printStorage() {
     console.log(storage);
   }
 
   return {
-    addTask, removeTask, getTask, toggleTaskImportant, printStorage,
+    addTask, removeTask, getTask, printStorage,
   };
 }

@@ -327,6 +327,7 @@ button.task-card .task-card--details {
 .content-sidebar button:hover,
 .content-sidebar li:hover {
   background-color: var(--COLOR-ESC2);
+  cursor: pointer;
 }
 
 .content-sidebar--list {
@@ -338,7 +339,7 @@ button.task-card .task-card--details {
 
 .content-sidebar--list > li {
   padding-left: 1rem;
-  height: 4rem;
+  height: 3.5rem;
 }
 
 .content-sidebar--list > li > ion-icon {
@@ -346,7 +347,13 @@ button.task-card .task-card--details {
   margin-right: 0.5rem;
 }
 
-.content-sidebar--list > li > button {
+.content-sidebar--list > li > p {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.content-sidebar--list > li > button,
+.content-sidebar--list > li > p {
   height: 100%;
   font-size: 1rem;
   font-family: quicksand;

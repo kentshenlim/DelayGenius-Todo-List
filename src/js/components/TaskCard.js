@@ -52,7 +52,8 @@ export default function TaskCard({ taskName, dueDate, id }) {
   taskNameNode.textContent = taskName;
   details.appendChild(taskNameNode);
 
-  const list = TaskCardNote([getDateFormatObj(dueDate)]);
+  const listVar = dueDate ? [getDateFormatObj(dueDate)] : [];
+  const list = TaskCardNote(listVar);
   details.appendChild(list);
 
   resNode.append(...[circle, jdenticon, details]);

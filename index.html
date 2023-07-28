@@ -37,7 +37,31 @@
       </nav>
 
       <main class="content flex-horizontal">
-        <!-- <div class="main-left"></div> -->
+        <div class="content-sidebar flex-vertical" id="content-sidebar">
+          <button class="flex-horizontal list-row">
+            <ion-icon name="list"></ion-icon>
+          </button>
+          <ul class="content-sidebar--list">
+            <li class="flex-horizontal">
+              <ion-icon name="sunny-outline"></ion-icon>
+              <button>My Day</button>
+            </li>
+            <li class="flex-horizontal">
+              <ion-icon name="star-outline"></ion-icon>
+              <button>Important</button>
+            </li>
+            <li class="flex-horizontal">
+              <ion-icon name="calendar-clear-outline"></ion-icon>
+              <button>Planned</button>
+            </li>
+            <li class="flex-horizontal">
+              <ion-icon name="checkmark-done-outline"></ion-icon>
+              <button>Completed</button>
+            </li>
+            <hr />
+          </ul>
+        </div>
+
         <div class="content-center flex-vertical" id="content-center">
           <header class="content-center--header flex-horizontal">
             <button class="flex-horizontal">
@@ -51,7 +75,12 @@
               <label class="flex-horizontal" for="add-task">
                 <ion-icon name="add-outline"></ion-icon>
               </label>
-              <input type="text" id="add-task" class="add-task" />
+              <input
+                type="text"
+                id="add-task"
+                class="add-task"
+                placeholder="Add a task"
+              />
             </div>
             <div class="flex-horizontal date-form">
               <label class="flex-horizontal" for="add-date">

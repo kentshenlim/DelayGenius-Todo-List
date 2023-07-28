@@ -3,6 +3,8 @@ export default function Header(iconName, headerText) {
   iconName: string, value of name attribute in ion-icon element
   headerText: string, e.g. "Planned", "Important", "My Day"
   */
+  // Event handler
+
   const resNode = document.createElement('header');
   resNode.classList.add('content-center--header', 'flex-horizontal');
 

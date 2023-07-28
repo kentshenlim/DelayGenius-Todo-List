@@ -302,6 +302,11 @@ button.task-card .task-card--details {
   display: inline;
 }
 
+.task-card.active-task {
+  background-color: hsl(255deg 11.48% 32.77%);
+  border: solid var(--COLOR-ESC2) 1px;
+}
+
 /* Main left -----------------------------------------------------------------*/
 
 /*!***************************************************************************!*\

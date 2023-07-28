@@ -1,5 +1,6 @@
 export default function taskStorage() {
   const storage = { a: 1 }; // nanoid => task object
+  let activeTaskId;
 
   function addTask(taskObj) { // taskObj built using Task constructor
     storage[taskObj.id] = taskObj;
@@ -18,7 +19,15 @@ export default function taskStorage() {
     console.log(storage);
   }
 
+  function setActiveTask(id) {
+    activeTaskId = id;
+  }
+
+  function getActiveTask() {
+    return storage[activeTaskId];
+  }
+
   return {
-    addTask, removeTask, getTask, printStorage,
+    addTask, removeTask, getTask, printStorage, setActiveTask, getActiveTask,
   };
 }

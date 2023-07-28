@@ -9,7 +9,8 @@ function getDateFormatObj(valueAsDate) {
   const formatStr = isSameYear(valueAsDate, new Date())
     ? 'E, MMMM d' : 'E, MMMM d, u';
   const [color, prepend] = differenceInDays(valueAsDate, new Date()) >= 0
-    ? ['auto', 'Due '] : ['red', 'Overdue, '];
+    ? ['auto', 'Due ']
+    : ['#ed7070', 'Overdue, '];
   return { disp: prepend + format(valueAsDate, formatStr), color };
 }
 

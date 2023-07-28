@@ -1,6 +1,3 @@
-/*!***********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/style.css ***!
-  \***********************************************************************/
 @font-face {
   font-family: quicksand;
   src: url(cf52df73d8529b4815ed.ttf);
@@ -303,9 +300,6 @@ button.task-card .task-card--details {
 
 /* Main left -----------------------------------------------------------------*/
 
-/*!***************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style/scrollbar.css ***!
-  \***************************************************************************/
 /* Reference: https://codepen.io/stephenpaton-tech/full/JjRvGmY */
 /* ===== Scrollbar CSS ===== */
 /* Firefox */

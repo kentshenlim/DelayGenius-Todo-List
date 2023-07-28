@@ -7,7 +7,7 @@ import ui from './js/ui';
 import pubSub from './utils/pubSub';
 
 document.addEventListener('DOMContentLoaded', () => {
-  addForm();
+  const form = addForm();
   const storage = taskStore();
   const userInterface = ui();
   pubSub.subscribe('add_task', storage.addTask);
@@ -15,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('add_task', storage.printStorage);
   pubSub.subscribe('complete_task', (id) => storage.getTask(id).toggleIsCompleted());
   pubSub.subscribe('complete_task', storage.printStorage);
+  pubSub.subscribe('click_card', form.collapse);
 });

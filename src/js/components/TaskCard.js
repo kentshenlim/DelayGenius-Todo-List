@@ -25,8 +25,8 @@ export default function TaskCard({ taskName, dueDate, id }) {
     pubSub.publish('complete_task', e.target.parentNode.getAttribute('data-id'));
   }
 
-  function handleClickCardBody() {
-    console.log('Click body');
+  function handleClickCardBody(e) {
+    pubSub.publish('click_card', e.target.parentNode.getAttribute('data-id'));
   }
 
   const resNode = document.createElement('button');

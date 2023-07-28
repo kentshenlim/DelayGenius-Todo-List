@@ -8,6 +8,10 @@ export default (() => {
   const dateInput = document.getElementById('add-date');
   const addBtn = document.getElementById('submit-task-card');
 
+  function collapse() {
+    dateForm.classList.remove('active');
+  }
+
   // Event handlers
   function handleInputChange() {
     if (textInput.value.length) addBtn.classList.add('active');
@@ -30,4 +34,6 @@ export default (() => {
   textInput.onkeyup = handleInputChange;
   addBtn.onclick = handleClickAdd;
   textInput.onfocus = handleFocus;
+
+  return { collapse };
 });

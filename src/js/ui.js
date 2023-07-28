@@ -10,8 +10,9 @@ export default function ui() {
   }
 
   function removeTask(id) {
-
+    const node = document.querySelector(`[data-id="${id}"]`);
+    node.remove();
   }
 
-  return { addTask };
+  return { addTask, removeTask };
 }

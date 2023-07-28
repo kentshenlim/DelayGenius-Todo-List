@@ -30,10 +30,16 @@ export default (() => {
     dateForm.classList.add('active');
   }
 
+  function handleEnterDown(e) {
+    if (e.keyCode === 13) addBtn.click();
+  }
+
   textInput.onkeydown = handleInputChange;
   textInput.onkeyup = handleInputChange;
   addBtn.onclick = handleClickAdd;
   textInput.onfocus = handleFocus;
+  textInput.addEventListener('keydown', handleEnterDown);
+  dateInput.onkeydown = handleEnterDown;
 
   return { collapse };
 });

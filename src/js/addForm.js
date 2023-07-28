@@ -31,14 +31,14 @@ export default (() => {
   }
 
   function handleEnterDown(e) {
-    if (e.keyCode === 13) addBtn.click();
+    if (e.key === 'Enter') addBtn.click();
   }
 
   textInput.onkeydown = handleInputChange;
   textInput.onkeyup = handleInputChange;
   addBtn.onclick = handleClickAdd;
   textInput.onfocus = handleFocus;
-  textInput.addEventListener('keydown', handleEnterDown);
+  textInput.addEventListener('keydown', handleEnterDown); // onkeydown occupied for input change
   dateInput.onkeydown = handleEnterDown;
 
   return { collapse };

@@ -17,4 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('complete_task', (id) => userInterface.removeTask(id));
   pubSub.subscribe('complete_task', storage.printStorage);
   pubSub.subscribe('click_card', form.collapse);
+  pubSub.subscribe('click_star', (id) => storage.getTask(id).toggleIsImportant());
+  pubSub.subscribe('click_star', storage.printStorage);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'q') console.log('okay');
+  });
 });

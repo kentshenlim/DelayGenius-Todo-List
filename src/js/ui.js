@@ -14,5 +14,11 @@ export default function ui() {
     node.remove();
   }
 
-  return { addTask, removeTask };
+  function rerender(storage) {
+    while (cardShelf.lastChild) cardShelf.removeChild(cardShelf.lastChild);
+    const tasks = Object.values(storage);
+    tasks.forEach((task) => addTask(task));
+  }
+
+  return { addTask, removeTask, rerender };
 }

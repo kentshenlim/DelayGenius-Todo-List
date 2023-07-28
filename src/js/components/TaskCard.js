@@ -14,7 +14,9 @@ function getDateFormatObj(valueAsDate) {
   return { disp: prepend + format(valueAsDate, formatStr), color };
 }
 
-export default function TaskCard({ taskName, dueDate, id }) {
+export default function TaskCard({
+  taskName, dueDate, id, isImportant,
+}) {
   /*
   taskName: string, task name displayed
   arr: Array of objects, [{displayString, colorString}]
@@ -27,6 +29,14 @@ export default function TaskCard({ taskName, dueDate, id }) {
 
   function handleClickCardBody(e) {
     pubSub.publish('click_card', e.target.parentNode.getAttribute('data-id'));
+  }
+
+  function handleClickStar(e) {
+    e.stopPropagation();
+    const crt = e.target.getAttribute('name');
+    const next = crt === 'star' ? 'star-outline' : 'star';
+    e.target.setAttribute('name', next);
+    pubSub.publish('click_star', e.target.parentNode.getAttribute('data-id'));
   }
 
   const resNode = document.createElement('button');
@@ -56,7 +66,12 @@ export default function TaskCard({ taskName, dueDate, id }) {
   const list = TaskCardNote(listVar);
   details.appendChild(list);
 
-  resNode.append(...[circle, jdenticon, details]);
+  const star = document.createElement('ion-icon');
+  star.setAttribute('name', isImportant ? 'star' : 'star-outline');
+  star.setAttribute('title', 'Toggle importance');
+  star.onclick = handleClickStar;
+
+  resNode.append(...[circle, jdenticon, details, star]);
 
   return resNode;
 }

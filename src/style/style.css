@@ -249,6 +249,7 @@ button.task-card {
   background-color: var(--COLOR-CARD);
   color: var(--COLOR-MAIN);
   font-family: Belanosima;
+  padding-right: 1rem;
 }
 
 button.task-card > * {

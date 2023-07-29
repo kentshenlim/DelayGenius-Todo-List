@@ -11,6 +11,7 @@ export default function sidebar() {
   const plannedCount = document.getElementById('planned-count');
   const completedCount = document.getElementById('completed-count');
   const allBtn = [myDayBtn, importantBtn, plannedBtn, completedBtn];
+  let activeBtnNode = plannedBtn;
 
   // Map: selector criteria of the four categories
   function getNumberRep(btnNode) {
@@ -74,16 +75,25 @@ export default function sidebar() {
     pubSub.publish('update_count_requested', null);
   }
 
+  function updateActiveCategory(btnNode) {
+    activeBtnNode.classList.remove('active-btn-node');
+    activeBtnNode = btnNode;
+    activeBtnNode.classList.add('active-btn-node');
+  }
+
   // Event handlers
   function handleClick(e) {
-    const btnNode = e.target;
+    e.stopPropagation();
+    e.preventDefault();
+    const btnNode = e.currentTarget;
     const selectorObj = getSelectorObj(btnNode);
     pubSub.publish('update_cardShelf_requested', selectorObj); // Update with these selectors
+    updateActiveCategory(e.target);
   }
   allBtn.forEach((btn) => {
     const p = btn;
-    p.onclick = handleClick;
-  });
+    p.addEventListener('click', (e) => handleClick(e));
+  }, true);
 
   return { getSelectorObj, updateAllCount, requestUpdateCount };
 }

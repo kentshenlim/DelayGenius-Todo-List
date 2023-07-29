@@ -358,6 +358,14 @@ button.task-card .task-card--details {
   color: var(--COLOR-ACCENT);
 }
 
+.content-sidebar--list > li > button:hover {
+  background-color: transparent;
+}
+
+.content-sidebar--list > li.active-btn-node {
+  background-color: var(--COLOR-BAR);
+}
+
 .content-sidebar.hidden {
   width: 0;
 }

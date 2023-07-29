@@ -88,7 +88,7 @@ export default function sidebar() {
     const btnNode = e.currentTarget;
     const selectorObj = getSelectorObj(btnNode);
     pubSub.publish('update_cardShelf_requested', selectorObj); // Update with these selectors
-    updateActiveCategory(e.target);
+    updateActiveCategory(e.currentTarget); // Not target; might refer to child
   }
   allBtn.forEach((btn) => {
     const p = btn;

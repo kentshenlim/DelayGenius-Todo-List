@@ -1,17 +1,17 @@
 import './utils/jdenticon';
 import './style/style.css';
 import './style/scrollbar.css';
-import taskStoreFac from './js/taskStore';
-import addFormFac from './js/addForm';
-import cardShelfFac from './js/cardShelf';
-import sidebarFac from './js/sidebar';
+import taskStoreFactory from './js/taskStore';
+import addFormFactory from './js/addForm';
+import cardShelfFactory from './js/cardShelf';
+import sidebarFactory from './js/sidebar';
 import pubSub from './utils/pubSub';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const addForm = addFormFac();
-  const taskStore = taskStoreFac();
-  const cardShelf = cardShelfFac();
-  const sidebar = sidebarFac();
+  const addForm = addFormFactory();
+  const taskStore = taskStoreFactory();
+  const cardShelf = cardShelfFactory();
+  const sidebar = sidebarFactory();
   pubSub.subscribe('add_task', taskStore.addTask);
   pubSub.subscribe('add_task', cardShelf.addTask);
   pubSub.subscribe('add_task', taskStore.printStorage);

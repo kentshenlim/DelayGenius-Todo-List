@@ -34,7 +34,7 @@ export default function sidebar() {
 
   const selectorMap = {
     1: { isMyDay: true },
-    2: { isImportant: true },
+    2: { isImportant: true, isCompleted: false }, // Do not consider completed task
     3: { isCompleted: false },
     4: { isCompleted: true },
   };

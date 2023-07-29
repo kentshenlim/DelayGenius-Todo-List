@@ -8,6 +8,7 @@ export default (() => {
   const dateInput = document.getElementById('add-date');
   const addBtn = document.getElementById('submit-task-card');
 
+  // Method declaration
   function collapse() {
     dateForm.classList.remove('active');
   }

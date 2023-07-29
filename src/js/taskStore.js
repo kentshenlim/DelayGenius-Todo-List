@@ -1,7 +1,10 @@
+import pubSub from '../utils/pubSub';
+
 export default function taskStorage() {
   const storage = { }; // nanoid => task object
   let activeTaskId;
 
+  // Method declaration
   function addTask(taskObj) { // taskObj built using Task constructor
     storage[taskObj.id] = taskObj;
   }
@@ -27,7 +30,17 @@ export default function taskStorage() {
     return storage[activeTaskId];
   }
 
+  function exposeStorageForUpdateCount() {
+    pubSub.publish('update_count_processed', storage);
+  }
+
   return {
-    addTask, removeTask, getTask, printStorage, setActiveTask, getActiveTask,
+    addTask,
+    removeTask,
+    getTask,
+    printStorage,
+    setActiveTask,
+    getActiveTask,
+    exposeStorageForUpdateCount,
   };
 }

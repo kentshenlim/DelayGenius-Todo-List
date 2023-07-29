@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('click_star', sidebar.requestUpdateCount);
   pubSub.subscribe('update_count_requested', taskStore.exposeStorageForUpdateCount);
   pubSub.subscribe('update_count_processed', sidebar.updateAllCount);
+  pubSub.subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);
+  pubSub.subscribe('update_cardShelf_processed', cardShelf.rerender);
   window.addEventListener('keydown', (e) => {
     if (e.key === 'q') console.log('okay');
   });

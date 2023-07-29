@@ -23,10 +23,22 @@ export default function ui() {
     });
   }
 
-  function rerender(storage) {
-    while (cardShelf.lastChild) cardShelf.removeChild(cardShelf.lastChild);
+  function rerender([selectorObj, storage]) {
+    while (cardShelf.lastChild) {
+      cardShelf.removeChild(cardShelf.lastChild);
+    }
     const tasks = Object.values(storage);
-    tasks.forEach((task) => addTask(task));
+    const cKey = Object.keys(selectorObj);
+    for (let task = 0; task < tasks.length; task += 1) {
+      let isRender = true;
+      for (let c = 0; c < cKey.length; c += 1) {
+        if (tasks[task][cKey[c]] !== selectorObj[cKey[c]]) {
+          isRender = false;
+          break;
+        }
+      }
+      if (isRender) addTask(tasks[task]);
+    }
   }
 
   return {

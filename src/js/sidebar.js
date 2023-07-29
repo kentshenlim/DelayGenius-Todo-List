@@ -10,6 +10,7 @@ export default function sidebar() {
   const importantCount = document.getElementById('important-count');
   const plannedCount = document.getElementById('planned-count');
   const completedCount = document.getElementById('completed-count');
+  const allBtn = [myDayBtn, importantBtn, plannedBtn, completedBtn];
 
   // Map: selector criteria of the four categories
   function getNumberRep(btnNode) {
@@ -39,8 +40,6 @@ export default function sidebar() {
     4: { isCompleted: true },
   };
 
-  // Event handlers
-
   // Method declaration
   function getSelectorObj(btnNode) {
     // Return an object specifying the criteria of tasks to be rendered if
@@ -50,7 +49,6 @@ export default function sidebar() {
   }
 
   function updateAllCount(taskStore) {
-    const allBtn = [myDayBtn, importantBtn, plannedBtn, completedBtn];
     for (let i = 0; i < allBtn.length; i += 1) {
       const btnNode = allBtn[i];
       const numNode = getNumberNode(btnNode); // Of which text content to be updated
@@ -75,6 +73,17 @@ export default function sidebar() {
   function requestUpdateCount() {
     pubSub.publish('update_count_requested', null);
   }
+
+  // Event handlers
+  function handleClick(e) {
+    const btnNode = e.target;
+    const selectorObj = getSelectorObj(btnNode);
+    pubSub.publish('update_cardShelf_requested', selectorObj); // Update with these selectors
+  }
+  allBtn.forEach((btn) => {
+    const p = btn;
+    p.onclick = handleClick;
+  });
 
   return { getSelectorObj, updateAllCount, requestUpdateCount };
 }

@@ -18,7 +18,7 @@ export default function taskStorage() {
     return storage[id];
   }
 
-  function printStorage() {
+  function printStorage() { // For debugging and development
     console.log(storage);
   }
 
@@ -34,6 +34,10 @@ export default function taskStorage() {
     pubSub.publish('update_count_processed', storage);
   }
 
+  function exposeStorageForUpdateCardShelf(selectorObj) {
+    pubSub.publish('update_cardShelf_processed', [selectorObj, storage]);
+  }
+
   return {
     addTask,
     removeTask,
@@ -42,5 +46,6 @@ export default function taskStorage() {
     setActiveTask,
     getActiveTask,
     exposeStorageForUpdateCount,
+    exposeStorageForUpdateCardShelf,
   };
 }

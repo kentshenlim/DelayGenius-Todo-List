@@ -1,5 +1,5 @@
 export default function taskStorage() {
-  const storage = { a: 1 }; // nanoid => task object
+  const storage = { }; // nanoid => task object
   let activeTaskId;
 
   function addTask(taskObj) { // taskObj built using Task constructor

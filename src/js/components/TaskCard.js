@@ -39,6 +39,7 @@ export default function TaskCard({
     pubSub.publish('click_star', e.target.parentNode.getAttribute('data-id'));
   }
 
+  // DOM nodes
   const resNode = document.createElement('button');
   resNode.classList.add('task-card', 'flex-horizontal');
   resNode.onclick = handleClickCardBody;

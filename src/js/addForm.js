@@ -38,7 +38,7 @@ export default (() => {
   textInput.onkeyup = handleInputChange;
   addBtn.onclick = handleClickAdd;
   textInput.onfocus = handleFocus;
-  textInput.addEventListener('keydown', handleEnterDown); // onkeydown occupied for input change
+  textInput.addEventListener('keydown', handleEnterDown); // onkeydown occupied by input change
   dateInput.onkeydown = handleEnterDown;
 
   return { collapse };

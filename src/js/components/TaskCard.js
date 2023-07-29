@@ -14,6 +14,27 @@ function getDateFormatObj(valueAsDate) {
   return { disp: prepend + format(valueAsDate, formatStr), color };
 }
 
+/// Event handlers
+function handleClickCircle(e) {
+  e.stopPropagation();
+  pubSub.publish(
+    'complete_task',
+    e.target.parentNode.getAttribute('data-id'),
+  );
+}
+
+function handleClickCardBody(e) {
+  pubSub.publish('click_card', e.target.parentNode.getAttribute('data-id'));
+}
+
+function handleClickStar(e) {
+  e.stopPropagation();
+  const crt = e.target.getAttribute('name');
+  const next = crt === 'star' ? 'star-outline' : 'star';
+  e.target.setAttribute('name', next);
+  pubSub.publish('click_star', e.target.parentNode.getAttribute('data-id'));
+}
+
 export default function TaskCard({
   taskName, dueDate, id, isImportant,
 }) {
@@ -22,22 +43,6 @@ export default function TaskCard({
   arr: Array of objects, [{displayString, colorString}]
   */
   // Event handlers
-  function handleClickCircle(e) {
-    e.stopPropagation();
-    pubSub.publish('complete_task', e.target.parentNode.getAttribute('data-id'));
-  }
-
-  function handleClickCardBody(e) {
-    pubSub.publish('click_card', e.target.parentNode.getAttribute('data-id'));
-  }
-
-  function handleClickStar(e) {
-    e.stopPropagation();
-    const crt = e.target.getAttribute('name');
-    const next = crt === 'star' ? 'star-outline' : 'star';
-    e.target.setAttribute('name', next);
-    pubSub.publish('click_star', e.target.parentNode.getAttribute('data-id'));
-  }
 
   // DOM nodes
   const resNode = document.createElement('button');

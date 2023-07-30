@@ -36,7 +36,7 @@ function handleClickStar(e) {
 }
 
 export default function TaskCard({
-  taskName, dueDate, id, isImportant,
+  taskName, dueDate, id, isImportant, isCompleted,
 }) {
   /*
   taskName: string, task name displayed
@@ -51,9 +51,11 @@ export default function TaskCard({
   resNode.setAttribute('data-id', id);
 
   const circle = document.createElement('ion-icon');
-  circle.setAttribute('name', 'ellipse-outline');
-  circle.addEventListener('mouseenter', () => circle.setAttribute('name', 'ellipse'));
-  circle.addEventListener('mouseleave', () => circle.setAttribute('name', 'ellipse-outline'));
+  circle.setAttribute('name', (!isCompleted ? 'ellipse-outline' : 'ellipse'));
+  if (!isCompleted) {
+    circle.addEventListener('mouseenter', () => circle.setAttribute('name', 'ellipse'));
+    circle.addEventListener('mouseleave', () => circle.setAttribute('name', 'ellipse-outline'));
+  }
   circle.onclick = handleClickCircle;
 
   const jdenticon = document.createElement('div');
@@ -66,6 +68,10 @@ export default function TaskCard({
   const taskNameNode = document.createElement('h3');
   taskNameNode.classList.add('flex-horizontal');
   taskNameNode.textContent = taskName;
+  if (isCompleted) {
+    taskNameNode.style.textDecoration = 'line-through';
+    taskNameNode.style.textDecorationThickness = '2px';
+  }
   details.appendChild(taskNameNode);
 
   const listVar = dueDate ? [getDateFormatObj(dueDate)] : [];

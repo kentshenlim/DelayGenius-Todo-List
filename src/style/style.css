@@ -221,6 +221,7 @@ input.add-date {
   flex: 1 1 0; /* Take all remaining vertical space of .content-center */
   overflow-y: auto;
   scrollbar-gutter: stable;
+  padding-block: 0.5rem;
 }
 
 div.content-center--input,

@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 export default class Task {
   constructor({ taskName, dueDate }) {
     this.id = nanoid();
-    this.taskName = taskName.trim();
+    this.taskName = taskName.trim().replace(/ +(?= )/g, ''); // Replace consecutive spaces
     this.dueDate = dueDate;
     this.isMyDay = false;
     this.isImportant = false;

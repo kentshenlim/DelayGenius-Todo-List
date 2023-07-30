@@ -2,6 +2,7 @@ import pubSub from '../utils/pubSub';
 
 export default function taskStorage() {
   const storage = { }; // nanoid => task object
+  const listStorage = {}; // listName => count (to get, e.g. "name(1)", "name(2)")
   let activeTaskId;
 
   // Method declaration
@@ -20,6 +21,10 @@ export default function taskStorage() {
 
   function printStorage() { // For debugging and development
     console.log(storage);
+  }
+
+  function printListStorage() {
+    console.log(listStorage);
   }
 
   function setActiveTask(id) {
@@ -43,6 +48,7 @@ export default function taskStorage() {
     removeTask,
     getTask,
     printStorage,
+    printListStorage,
     setActiveTask,
     getActiveTask,
     exposeStorageForUpdateCount,

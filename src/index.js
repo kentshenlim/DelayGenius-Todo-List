@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('add_task', cardShelf.addTask);
   pubSub.subscribe('add_task', taskStore.printStorage);
   pubSub.subscribe('add_task', sidebar.requestUpdateCount);
-  pubSub.subscribe('complete_task', (id) => taskStore.getTask(id).toggleIsCompleted());
-  pubSub.subscribe('complete_task', (id) => cardShelf.removeTask(id));
-  pubSub.subscribe('complete_task', taskStore.printStorage);
-  pubSub.subscribe('complete_task', sidebar.requestUpdateCount);
+  pubSub.subscribe('click_circle', (id) => taskStore.getTask(id).toggleIsCompleted());
+  pubSub.subscribe('click_circle', (id) => cardShelf.removeTask(id));
+  pubSub.subscribe('click_circle', taskStore.printStorage);
+  pubSub.subscribe('click_circle', sidebar.requestUpdateCount);
   pubSub.subscribe('click_card', addForm.collapse);
   pubSub.subscribe('click_card', taskStore.setActiveTask);
   pubSub.subscribe('click_card', cardShelf.setActiveTask);

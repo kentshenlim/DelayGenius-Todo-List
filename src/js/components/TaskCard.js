@@ -18,7 +18,7 @@ function getDateFormatObj(valueAsDate) {
 function handleClickCircle(e) {
   e.stopPropagation();
   pubSub.publish(
-    'complete_task',
+    'click_circle',
     e.target.parentNode.getAttribute('data-id'),
   );
 }

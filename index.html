@@ -42,22 +42,26 @@
             <ion-icon name="list"></ion-icon>
           </button>
           <ul class="content-sidebar--list">
-            <li class="flex-horizontal" id="my-day-btn">
+            <li class="flex-horizontal" id="my-day-btn" data-btn-code="0">
               <ion-icon name="sunny-outline"></ion-icon>
               <button>My Day</button>
               <p class="flex-horizontal" id="my-day-count"></p>
             </li>
-            <li class="flex-horizontal" id="important-btn">
+            <li class="flex-horizontal" id="important-btn" data-btn-code="1">
               <ion-icon name="star-outline"></ion-icon>
               <button>Important</button>
               <p class="flex-horizontal" id="important-count"></p>
             </li>
-            <li class="flex-horizontal active-btn-node" id="planned-btn">
+            <li
+              class="flex-horizontal active-btn-node"
+              id="planned-btn"
+              data-btn-code="2"
+            >
               <ion-icon name="calendar-clear-outline"></ion-icon>
               <button>Planned</button>
               <p class="flex-horizontal" id="planned-count"></p>
             </li>
-            <li class="flex-horizontal" id="completed-btn">
+            <li class="flex-horizontal" id="completed-btn" data-btn-code="3">
               <ion-icon name="checkmark-done-outline"></ion-icon>
               <button>Completed</button>
               <p class="flex-horizontal" id="completed-count"></p>

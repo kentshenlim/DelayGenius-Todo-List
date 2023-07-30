@@ -13,33 +13,28 @@ export default function sidebar() {
   const allBtn = [myDayBtn, importantBtn, plannedBtn, completedBtn];
   let activeBtnNode = plannedBtn;
 
+  const textNodeMap = {
+    0: myDayCount,
+    1: importantCount,
+    2: plannedCount,
+    3: completedCount,
+  };
+
+  const selectorMap = {
+    0: { isMyDay: true },
+    1: { isImportant: true, isCompleted: false }, // Do not consider completed task
+    2: { isCompleted: false },
+    3: { isCompleted: true },
+  };
+
   // Map: selector criteria of the four categories
   function getNumberRep(btnNode) {
-    switch (btnNode) {
-      case myDayBtn: return 1;
-      case importantBtn: return 2;
-      case plannedBtn: return 3;
-      case completedBtn: return 4;
-      default: return false;
-    }
+    return btnNode.getAttribute('data-btn-code');
   }
 
   function getNumberNode(btnNode) {
-    switch (btnNode) {
-      case myDayBtn: return myDayCount;
-      case importantBtn: return importantCount;
-      case plannedBtn: return plannedCount;
-      case completedBtn: return completedCount;
-      default: return false;
-    }
+    return textNodeMap[getNumberRep(btnNode)];
   }
-
-  const selectorMap = {
-    1: { isMyDay: true },
-    2: { isImportant: true, isCompleted: false }, // Do not consider completed task
-    3: { isCompleted: false },
-    4: { isCompleted: true },
-  };
 
   // Method declaration
   function getSelectorObj(btnNode) {

@@ -76,6 +76,16 @@ export default function sidebar() {
     activeBtnNode.classList.add('active-btn-node');
   }
 
+  function finalizeAddTaskRequest(taskObj) {
+    const finalTaskObj = taskObj; // Shallow copy, need to preserve method
+    const extraSelector = getSelectorObj(activeBtnNode);
+    const cKeys = Object.keys(extraSelector);
+    for (let i = 0; i < cKeys.length; i += 1) {
+      finalTaskObj[cKeys[i]] = extraSelector[cKeys[i]]; // Overwrite
+    }
+    pubSub.publish('add_task_finalized', finalTaskObj);
+  }
+
   // Event handlers
   function handleClick(e) {
     e.stopPropagation();
@@ -90,5 +100,7 @@ export default function sidebar() {
     p.addEventListener('click', (e) => handleClick(e));
   }, true);
 
-  return { getSelectorObj, updateAllCount, requestUpdateCount };
+  return {
+    getSelectorObj, updateAllCount, requestUpdateCount, finalizeAddTaskRequest,
+  };
 }

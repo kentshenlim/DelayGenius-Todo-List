@@ -11,10 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const taskStore = taskStoreFactory();
   const cardShelf = cardShelfFactory();
   const sidebar = sidebarFactory();
-  pubSub.subscribe('add_task', taskStore.addTask);
-  pubSub.subscribe('add_task', cardShelf.addTask);
-  pubSub.subscribe('add_task', taskStore.printStorage);
-  pubSub.subscribe('add_task', sidebar.requestUpdateCount);
+  pubSub.subscribe('add_task_requested', sidebar.finalizeAddTaskRequest);
+  pubSub.subscribe('add_task_finalized', taskStore.addTask);
+  pubSub.subscribe('add_task_finalized', cardShelf.addTask);
+  pubSub.subscribe('add_task_finalized', taskStore.printStorage);
+  pubSub.subscribe('add_task_finalized', sidebar.requestUpdateCount);
   pubSub.subscribe('click_circle', (id) => taskStore.getTask(id).toggleIsCompleted());
   pubSub.subscribe('click_circle', (id) => cardShelf.removeTask(id));
   pubSub.subscribe('click_circle', taskStore.printStorage);

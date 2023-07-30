@@ -5,6 +5,11 @@ export default function TaskCardNote(arr) {
   const resNode = document.createElement('ul');
 
   arr.forEach((element) => {
+    if (resNode.firstChild) { // If not first
+      const dotNode = document.createElement('li');
+      dotNode.textContent = ' • ';
+      resNode.appendChild(dotNode);
+    }
     const { disp, color } = element;
     const li = document.createElement('li');
     li.textContent = disp;

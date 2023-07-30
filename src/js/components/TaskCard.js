@@ -36,7 +36,7 @@ function handleClickStar(e) {
 }
 
 export default function TaskCard({
-  taskName, dueDate, id, isImportant, isCompleted,
+  taskName, dueDate, id, isImportant, isCompleted, isMyDay,
 }) {
   /*
   taskName: string, task name displayed
@@ -75,6 +75,7 @@ export default function TaskCard({
   details.appendChild(taskNameNode);
 
   const listVar = dueDate ? [getDateFormatObj(dueDate)] : [];
+  if (isMyDay) listVar.push({ disp: 'My Day', color: 'orange' });
   const list = TaskCardNote(listVar);
   details.appendChild(list);
 

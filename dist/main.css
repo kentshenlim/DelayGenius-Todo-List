@@ -326,7 +326,7 @@ button.task-card .task-card--details {
 }
 
 .content-sidebar button:hover,
-.content-sidebar li:hover {
+.content-sidebar li:not(.add-new-list):hover {
   background-color: var(--COLOR-ESC2);
   cursor: pointer;
 }
@@ -368,6 +368,27 @@ button.task-card .task-card--details {
 
 .content-sidebar--list > li.active-btn-node {
   background-color: var(--COLOR-BAR);
+}
+
+.content-sidebar--list > li.add-new-list > :last-child {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.content-sidebar--list > li.add-new-list > input {
+  height: 80%;
+  background-color: transparent;
+  border: transparent;
+  font-family: quicksand;
+  font-size: 1rem;
+  color: var(--COLOR-MAIN);
+}
+
+.content-sidebar--list > li.add-new-list > input:focus {
+  outline: none;
+}
+.content-sidebar--list > li.add-new-list > input:hover {
+  background-color: var(--COLOR-ESC2);
 }
 
 .content-sidebar.hidden {

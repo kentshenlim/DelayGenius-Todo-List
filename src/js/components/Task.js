@@ -8,7 +8,6 @@ export default class Task {
     this.isMyDay = false;
     this.isImportant = false;
     this.isCompleted = false;
-    this.categories = new Set();
   }
 
   editTaskName(newName) {
@@ -25,13 +24,5 @@ export default class Task {
 
   toggleIsImportant() {
     this.isImportant = !this.isImportant;
-  }
-
-  addCategory(category) {
-    this.categories.add(category);
-  }
-
-  removeCategory(category) {
-    this.categories.delete(category);
   }
 }

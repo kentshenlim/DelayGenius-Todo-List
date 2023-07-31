@@ -3,6 +3,8 @@ import SidebarCard from './components/SidebarCard';
 
 export default function sidebar() {
   // Cache DOM
+  const sidebarWrapper = document.getElementById('content-sidebar');
+  const sidebarToggler = document.getElementById('sidebar-toggler');
   const myDayBtn = document.getElementById('my-day-btn');
   const importantBtn = document.getElementById('important-btn');
   const plannedBtn = document.getElementById('planned-btn');
@@ -133,6 +135,11 @@ export default function sidebar() {
     if (e.key === 'Enter') listAdderBtn.click();
   }
   listAdderInput.addEventListener('keydown', handleKeyDownNewList);
+
+  function handleClickSidebarToggler() {
+    sidebarWrapper.classList.add('hidden');
+  }
+  sidebarToggler.onclick = handleClickSidebarToggler;
 
   return {
     getSelectorObj,

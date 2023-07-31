@@ -398,6 +398,7 @@ button.task-card .task-card--details {
 
 .content-sidebar.hidden {
   width: 0;
+  overflow: hidden;
 }
 
 /*!***************************************************************************!*\

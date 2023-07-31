@@ -21,7 +21,7 @@ export default function sidebar() {
   };
 
   const selectorMap = {
-    0: { isMyDay: true },
+    0: { isMyDay: true, isCompleted: false }, // Do not consider completed task
     1: { isImportant: true, isCompleted: false }, // Do not consider completed task
     2: { isCompleted: false },
     3: { isCompleted: true },

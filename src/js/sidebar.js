@@ -96,6 +96,8 @@ export default function sidebar() {
     const [sidebarCardNode, txtNode] = SidebarCard(nextBtnCode, finalListName);
     textNodeMap[nextBtnCode] = txtNode;
     selectorMap[nextBtnCode] = { [`is-list-${nextBtnCode}`]: true, isCompleted: false };
+    // eslint-disable-next-line no-use-before-define
+    sidebarCardNode.addEventListener('click', (e) => handleClick(e), true);
     sidebarList.insertBefore(sidebarCardNode, listAdder);
     // Atop of the adder, so adder will go down
   }

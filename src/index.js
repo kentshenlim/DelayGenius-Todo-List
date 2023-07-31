@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('update_count_processed', sidebar.updateAllCount);
   pubSub.subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);
   pubSub.subscribe('update_cardShelf_processed', cardShelf.rerender);
+  pubSub.subscribe('add_list_requested', taskStore.exposeProcessedListName);
+  pubSub.subscribe('add_list_processed', sidebar.setUpNewList);
   window.addEventListener('keydown', (e) => {
     if (e.key === 'q') console.log('okay');
   });

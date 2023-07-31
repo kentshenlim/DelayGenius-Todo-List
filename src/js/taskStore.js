@@ -43,6 +43,12 @@ export default function taskStorage() {
     pubSub.publish('update_cardShelf_processed', [selectorObj, storage]);
   }
 
+  function exposeProcessedListName(name) {
+    listStorage[name] = (listStorage[name] || 0) + 1;
+    const finalName = listStorage[name] === 1 ? name : `${name}(${listStorage[name] - 1})`;
+    pubSub.publish('add_list_processed', finalName);
+  }
+
   return {
     addTask,
     removeTask,
@@ -53,5 +59,6 @@ export default function taskStorage() {
     getActiveTask,
     exposeStorageForUpdateCount,
     exposeStorageForUpdateCardShelf,
+    exposeProcessedListName,
   };
 }

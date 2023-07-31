@@ -1,4 +1,5 @@
 import pubSub from '../utils/pubSub';
+import SidebarCard from './components/SidebarCard';
 
 export default function sidebar() {
   // Cache DOM
@@ -11,6 +12,10 @@ export default function sidebar() {
   const plannedCount = document.getElementById('planned-count');
   const completedCount = document.getElementById('completed-count');
   const allBtn = [myDayBtn, importantBtn, plannedBtn, completedBtn];
+  const listAdderInput = document.getElementById('list-adder-input');
+  const listAdderBtn = document.getElementById('list-adder-btn');
+  const listAdder = document.getElementById('list-adder-wrapper');
+  const sidebarList = document.getElementById('sidebar-list');
   let activeBtnNode = plannedBtn;
 
   const textNodeMap = {
@@ -86,6 +91,15 @@ export default function sidebar() {
     pubSub.publish('add_task_finalized', finalTaskObj);
   }
 
+  function setUpNewList(finalListName) {
+    const nextBtnCode = Object.keys(selectorMap).length;
+    const [sidebarCardNode, txtNode] = SidebarCard(nextBtnCode, finalListName);
+    textNodeMap[nextBtnCode] = txtNode;
+    selectorMap[nextBtnCode] = { [`is-list-${nextBtnCode}`]: true, isCompleted: false };
+    sidebarList.insertBefore(sidebarCardNode, listAdder);
+    // Atop of the adder, so adder will go down
+  }
+
   // Event handlers
   function handleClick(e) {
     e.stopPropagation();
@@ -100,7 +114,19 @@ export default function sidebar() {
     p.addEventListener('click', (e) => handleClick(e));
   }, true);
 
+  function handleClickAddNewList() {
+    const newListName = listAdderInput.value;
+    if (!newListName.length) return;
+    listAdderInput.value = '';
+    pubSub.publish('add_list_requested', newListName);
+  }
+  listAdderBtn.onclick = handleClickAddNewList;
+
   return {
-    getSelectorObj, updateAllCount, requestUpdateCount, finalizeAddTaskRequest,
+    getSelectorObj,
+    updateAllCount,
+    requestUpdateCount,
+    finalizeAddTaskRequest,
+    setUpNewList,
   };
 }

@@ -41,7 +41,7 @@
           <button class="flex-horizontal list-row">
             <ion-icon name="list"></ion-icon>
           </button>
-          <ul class="content-sidebar--list">
+          <ul class="content-sidebar--list" id="sidebar-list">
             <li class="flex-horizontal" id="my-day-btn" data-btn-code="0">
               <ion-icon name="sunny-outline"></ion-icon>
               <button>My Day</button>
@@ -67,10 +67,10 @@
               <p class="flex-horizontal" id="completed-count"></p>
             </li>
             <hr />
-            <li class="flex-horizontal add-new-list">
+            <li class="flex-horizontal add-new-list" id="list-adder-wrapper">
               <ion-icon name="add-outline"></ion-icon>
-              <input placeholder="New list"></input>
-              <ion-icon name="folder-open-outline"></ion-icon>
+              <input placeholder="New list" id="list-adder-input"></input>
+              <ion-icon name="folder-open-outline" id="list-adder-btn"></ion-icon>
             </li>
           </ul>
         </div>

@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);
   pubSub.subscribe('update_cardShelf_processed', cardShelf.rerender);
   pubSub.subscribe('update_header', titleHeader.rerender);
+  pubSub.subscribe('active_iconName_requested', sidebar.exposeActiveIconName);
+  pubSub.subscribe('active_iconName_exposed', titleHeader.switchToActiveIcon);
+  pubSub.subscribe('contract_sidebar', titleHeader.switchToMenuIcon);
   pubSub.subscribe('add_list_requested', taskStore.exposeProcessedListName);
   pubSub.subscribe('add_list_processed', sidebar.setUpNewList);
   window.addEventListener('keydown', (e) => {

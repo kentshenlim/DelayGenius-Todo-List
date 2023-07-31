@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import pubSub from '../utils/pubSub';
 
 export default function titleHeader() {
   // Cache DOM
@@ -8,12 +9,14 @@ export default function titleHeader() {
 
   // Event handler
   function handleClickIcon() {
+    if (!sidebarWrapper.classList.contains('hidden')) return;
     sidebarWrapper.classList.remove('hidden');
+    pubSub.publish('active_iconName_requested', null);
   }
   document.querySelector('#title-header > button').onclick = handleClickIcon;
 
   // Method declaration
-  function rerender([iconName, headerText]) {
+  function rerender({ iconName, headerText }) {
     const newHeader = Header(iconName, headerText);
     newHeader.firstChild.onclick = handleClickIcon;
     crtHeader.remove();
@@ -21,5 +24,13 @@ export default function titleHeader() {
     crtHeader = newHeader;
   }
 
-  return { rerender };
+  function switchToMenuIcon() {
+    rerender({ iconName: 'list', headerText: crtHeader.children[1].textContent });
+  }
+
+  function switchToActiveIcon(obj) {
+    rerender(obj);
+  }
+
+  return { rerender, switchToMenuIcon, switchToActiveIcon };
 }

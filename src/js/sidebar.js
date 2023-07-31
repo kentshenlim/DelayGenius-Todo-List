@@ -105,6 +105,12 @@ export default function sidebar() {
     allBtn.push(sidebarCardNode); // Add updateCount functionality
   }
 
+  function exposeActiveIconName() {
+    const headerText = activeBtnNode.children[1].textContent;
+    const iconName = activeBtnNode.children[0].getAttribute('name');
+    pubSub.publish('active_iconName_exposed', { iconName, headerText });
+  }
+
   // Event handlers
   function handleClick(e) {
     e.stopPropagation();
@@ -116,7 +122,7 @@ export default function sidebar() {
     // Then find the text content of second child and ion-icon to update header
     const newHeaderTxt = activeBtnNode.children[1].textContent;
     const newIconName = activeBtnNode.children[0].getAttribute('name');
-    pubSub.publish('update_header', [newIconName, newHeaderTxt]);
+    pubSub.publish('update_header', { iconName: newIconName, headerText: newHeaderTxt });
   }
   allBtn.forEach((btn) => {
     const p = btn;
@@ -138,6 +144,7 @@ export default function sidebar() {
 
   function handleClickSidebarToggler() {
     sidebarWrapper.classList.add('hidden');
+    pubSub.publish('contract_sidebar', null);
   }
   sidebarToggler.onclick = handleClickSidebarToggler;
 
@@ -147,5 +154,6 @@ export default function sidebar() {
     requestUpdateCount,
     finalizeAddTaskRequest,
     setUpNewList,
+    exposeActiveIconName,
   };
 }

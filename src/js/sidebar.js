@@ -125,6 +125,11 @@ export default function sidebar() {
   }
   listAdderBtn.onclick = handleClickAddNewList;
 
+  function handleKeyDownNewList(e) {
+    if (e.key === 'Enter') listAdderBtn.click();
+  }
+  listAdderInput.addEventListener('keydown', handleKeyDownNewList);
+
   return {
     getSelectorObj,
     updateAllCount,

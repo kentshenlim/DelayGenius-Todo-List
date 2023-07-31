@@ -111,6 +111,10 @@ export default function sidebar() {
     const selectorObj = getSelectorObj(btnNode);
     pubSub.publish('update_cardShelf_requested', selectorObj); // Update with these selectors
     updateActiveCategory(e.currentTarget); // Not target; might refer to child
+    // Then find the text content of second child and ion-icon to update header
+    const newHeaderTxt = activeBtnNode.children[1].textContent;
+    const newIconName = activeBtnNode.children[0].getAttribute('name');
+    pubSub.publish('update_header', [newIconName, newHeaderTxt]);
   }
   allBtn.forEach((btn) => {
     const p = btn;

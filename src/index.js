@@ -4,6 +4,7 @@ import taskStoreFactory from './js/taskStore';
 import addFormFactory from './js/addForm';
 import cardShelfFactory from './js/cardShelf';
 import sidebarFactory from './js/sidebar';
+import titleHeaderFactory from './js/titleHeader';
 import pubSub from './utils/pubSub';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const taskStore = taskStoreFactory();
   const cardShelf = cardShelfFactory();
   const sidebar = sidebarFactory();
+  const titleHeader = titleHeaderFactory();
   pubSub.subscribe('add_task_requested', sidebar.finalizeAddTaskRequest);
   pubSub.subscribe('add_task_finalized', taskStore.addTask);
   pubSub.subscribe('add_task_finalized', cardShelf.addTask);
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('update_count_processed', sidebar.updateAllCount);
   pubSub.subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);
   pubSub.subscribe('update_cardShelf_processed', cardShelf.rerender);
+  pubSub.subscribe('update_header', titleHeader.rerender);
   pubSub.subscribe('add_list_requested', taskStore.exposeProcessedListName);
   pubSub.subscribe('add_list_processed', sidebar.setUpNewList);
   window.addEventListener('keydown', (e) => {

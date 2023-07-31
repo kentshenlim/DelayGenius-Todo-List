@@ -326,9 +326,14 @@ button.task-card .task-card--details {
 }
 
 .content-sidebar button:hover,
-.content-sidebar li:not(.add-new-list):hover {
+.content-sidebar li:not(.add-new-list):hover,
+#list-adder-btn:hover {
   background-color: var(--COLOR-ESC2);
   cursor: pointer;
+}
+
+#list-adder-btn {
+  height: 80%;
 }
 
 .content-sidebar--list {

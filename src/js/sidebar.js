@@ -100,6 +100,7 @@ export default function sidebar() {
     sidebarCardNode.addEventListener('click', (e) => handleClick(e), true);
     sidebarList.insertBefore(sidebarCardNode, listAdder);
     // Atop of the adder, so adder will go down
+    allBtn.push(sidebarCardNode); // Add updateCount functionality
   }
 
   // Event handlers

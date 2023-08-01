@@ -20,6 +20,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
+      favicon: './public/favicon.ico',
     }),
 
     new MiniCssExtractPlugin(),
@@ -44,6 +45,10 @@ const config = {
       {
         test: /\.(ogg|mp3|wav|mpe?g)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.ico$/,
+        loader: 'file-loader',
       },
 
       // Add your rules for custom modules here

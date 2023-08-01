@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 
 export default class Task {
   constructor({
-    id, taskName, dueDate, isMyDay, isImportant, isCompleted,
+    id, taskName, dueDate, isMyDay, isImportant, isCompleted, ...rest
   }) {
     this.id = id || nanoid();
     this.taskName = taskName || taskName.trim().replace(/ +(?= )/g, ''); // Replace consecutive spaces
@@ -10,6 +10,8 @@ export default class Task {
     this.isMyDay = isMyDay || false;
     this.isImportant = isImportant || false;
     this.isCompleted = isCompleted || false;
+    const remKeys = Object.keys(rest);
+    for (let i = 0; i < remKeys.length; i += 1) this[remKeys[i]] = true; // For list identifier
   }
 
   editTaskName(newName) {

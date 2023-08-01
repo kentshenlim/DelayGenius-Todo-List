@@ -4,11 +4,11 @@ import Task from './components/Task';
 
 export default function taskStorage() {
   let storage = { }; // nanoid => task object
-  const listStorage = {}; // listName => count (to get, e.g. "name(1)", "name(2)")
+  let listStorage = {}; // listName => count (to get, e.g. "name(1)", "name(2)")
   let activeTaskId;
 
   // Method declaration
-  function init() {
+  function initStorage() {
     const data = JSON.parse(localStorage.getItem('delay-genius-storage'));
     if (!data) return;
     // Restore the dueDate as date object; date object format lost to
@@ -17,7 +17,7 @@ export default function taskStorage() {
     const keys = Object.keys(data);
     const storageNew = {};
     for (let i = 0; i < keys.length; i += 1) {
-      data[keys[i]].dueDate = parseISO(data[keys[i]].dueDate);
+      if (data[keys[i]].dueDate) data[keys[i]].dueDate = parseISO(data[keys[i]].dueDate);
       storageNew[keys[i]] = new Task(data[keys[i]]);
     }
     storage = storageNew;
@@ -25,8 +25,23 @@ export default function taskStorage() {
     pubSub.publish('click_active_sidebar', null);
   }
 
+  function initListStorage() {
+    const data = JSON.parse(localStorage.getItem('delay-genius-listStorage'));
+    if (!data) return;
+    listStorage = data;
+    const listNames = Object.keys(listStorage);
+    for (let i = 0; i < listNames.length; i += 1) {
+      for (let j = 0; j < listStorage[listNames[i]]; j += 1) {
+        const finalName = j === 0 ? listNames[i] : `${listNames[i]}(${j})`;
+        pubSub.publish('add_list_processed', finalName);
+      }
+    }
+    pubSub.publish('update_count_requested', null); // For custom lists, loaded after main lists
+  }
+
   function syncData() {
     localStorage.setItem('delay-genius-storage', JSON.stringify(storage));
+    localStorage.setItem('delay-genius-listStorage', JSON.stringify(listStorage));
   }
 
   function addTask(taskObj) { // taskObj built using Task constructor
@@ -73,7 +88,8 @@ export default function taskStorage() {
   }
 
   return {
-    init,
+    initStorage,
+    initListStorage,
     syncData,
     addTask,
     removeTask,

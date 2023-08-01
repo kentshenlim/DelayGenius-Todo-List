@@ -38,9 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('contract_sidebar', titleHeader.switchToMenuIcon);
   pubSub.subscribe('add_list_requested', taskStore.exposeProcessedListName);
   pubSub.subscribe('add_list_processed', sidebar.setUpNewList);
+  pubSub.subscribe('add_list_processed', taskStore.syncData);
   pubSub.subscribe('click_active_sidebar', sidebar.clickActiveBtn); // Rerender card shelf when load from localStorage
-  taskStore.init();
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'q') console.log('okay');
-  });
+  taskStore.initStorage();
+  taskStore.initListStorage();
 });

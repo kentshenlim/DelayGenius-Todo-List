@@ -111,6 +111,10 @@ export default function sidebar() {
     pubSub.publish('active_iconName_exposed', { iconName, headerText });
   }
 
+  function clickActiveBtn() {
+    activeBtnNode.click();
+  }
+
   // Event handlers
   function handleClick(e) {
     e.stopPropagation();
@@ -155,5 +159,6 @@ export default function sidebar() {
     finalizeAddTaskRequest,
     setUpNewList,
     exposeActiveIconName,
+    clickActiveBtn,
   };
 }

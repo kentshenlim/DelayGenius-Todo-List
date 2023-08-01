@@ -1,11 +1,29 @@
+import parseISO from 'date-fns/parseISO';
 import pubSub from '../utils/pubSub';
 
 export default function taskStorage() {
-  const storage = { }; // nanoid => task object
+  let storage = { }; // nanoid => task object
   const listStorage = {}; // listName => count (to get, e.g. "name(1)", "name(2)")
   let activeTaskId;
 
   // Method declaration
+  function init() {
+    const data = JSON.parse(localStorage.getItem('delay-genius-storage'));
+    if (!data) return;
+    // Restore the dueDate as date object; date object format lost to JSON.stringify
+    const values = Object.values(data);
+    for (let i = 0; i < values.length; i += 1) {
+      values[i].dueDate = parseISO(values[i].dueDate);
+    }
+    storage = data;
+    pubSub.publish('update_count_requested', null);
+    pubSub.publish('click_active_sidebar', null);
+  }
+
+  function syncData() {
+    localStorage.setItem('delay-genius-storage', JSON.stringify(storage));
+  }
+
   function addTask(taskObj) { // taskObj built using Task constructor
     storage[taskObj.id] = taskObj;
   }
@@ -50,6 +68,8 @@ export default function taskStorage() {
   }
 
   return {
+    init,
+    syncData,
     addTask,
     removeTask,
     getTask,

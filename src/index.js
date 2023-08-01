@@ -5,6 +5,7 @@ import addFormFactory from './js/addForm';
 import cardShelfFactory from './js/cardShelf';
 import sidebarFactory from './js/sidebar';
 import titleHeaderFactory from './js/titleHeader';
+import audioFactory from './js/audio';
 import pubSub from './utils/pubSub';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardShelf = cardShelfFactory();
   const sidebar = sidebarFactory();
   const titleHeader = titleHeaderFactory();
+  const audio = audioFactory();
   pubSub.subscribe('add_task_requested', sidebar.finalizeAddTaskRequest);
   pubSub.subscribe('add_task_finalized', taskStore.addTask);
   pubSub.subscribe('add_task_finalized', cardShelf.addTask);
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   pubSub.subscribe('click_circle', (id) => cardShelf.removeTask(id));
   pubSub.subscribe('click_circle', taskStore.syncData);
   pubSub.subscribe('click_circle', sidebar.requestUpdateCount);
+  pubSub.subscribe('click_circle', audio.playDing);
   pubSub.subscribe('click_card', addForm.collapse);
   pubSub.subscribe('click_card', taskStore.setActiveTask);
   pubSub.subscribe('click_card', cardShelf.setActiveTask);

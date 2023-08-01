@@ -426,7 +426,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_taskStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/taskStore */ \"./src/js/taskStore.js\");\n/* harmony import */ var _js_addForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/addForm */ \"./src/js/addForm.js\");\n/* harmony import */ var _js_cardShelf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/cardShelf */ \"./src/js/cardShelf.js\");\n/* harmony import */ var _js_sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/sidebar */ \"./src/js/sidebar.js\");\n/* harmony import */ var _js_titleHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/titleHeader */ \"./src/js/titleHeader.js\");\n/* harmony import */ var _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/pubSub */ \"./src/utils/pubSub.js\");\n\n\n\n\n\n\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  var addForm = (0,_js_addForm__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n  var taskStore = (0,_js_taskStore__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  var cardShelf = (0,_js_cardShelf__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n  var sidebar = (0,_js_sidebar__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\n  var titleHeader = (0,_js_titleHeader__WEBPACK_IMPORTED_MODULE_6__[\"default\"])();\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_task_requested', sidebar.finalizeAddTaskRequest);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_task_finalized', taskStore.addTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_task_finalized', cardShelf.addTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_task_finalized', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_task_finalized', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_circle', function (id) {\n    return taskStore.getTask(id).toggleIsCompleted();\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_circle', function (id) {\n    return cardShelf.removeTask(id);\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_circle', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_circle', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_card', addForm.collapse);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_card', taskStore.setActiveTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_card', cardShelf.setActiveTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_star', function (id) {\n    return taskStore.getTask(id).toggleIsImportant();\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_star', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_star', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('update_count_requested', taskStore.exposeStorageForUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('update_count_processed', sidebar.updateAllCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('update_cardShelf_processed', cardShelf.rerender);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('update_header', titleHeader.rerender);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('active_iconName_requested', sidebar.exposeActiveIconName);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('active_iconName_exposed', titleHeader.switchToActiveIcon);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('contract_sidebar', titleHeader.switchToMenuIcon);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_list_requested', taskStore.exposeProcessedListName);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_list_processed', sidebar.setUpNewList);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('add_list_processed', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_7__[\"default\"].subscribe('click_active_sidebar', sidebar.clickActiveBtn); // Rerender card shelf when load from localStorage\n  taskStore.initStorage();\n  taskStore.initListStorage();\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_scrollbar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/scrollbar.css */ \"./src/style/scrollbar.css\");\n/* harmony import */ var _js_taskStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/taskStore */ \"./src/js/taskStore.js\");\n/* harmony import */ var _js_addForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/addForm */ \"./src/js/addForm.js\");\n/* harmony import */ var _js_cardShelf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/cardShelf */ \"./src/js/cardShelf.js\");\n/* harmony import */ var _js_sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/sidebar */ \"./src/js/sidebar.js\");\n/* harmony import */ var _js_titleHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/titleHeader */ \"./src/js/titleHeader.js\");\n/* harmony import */ var _js_audio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/audio */ \"./src/js/audio.js\");\n/* harmony import */ var _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/pubSub */ \"./src/utils/pubSub.js\");\n\n\n\n\n\n\n\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  var addForm = (0,_js_addForm__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n  var taskStore = (0,_js_taskStore__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  var cardShelf = (0,_js_cardShelf__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n  var sidebar = (0,_js_sidebar__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\n  var titleHeader = (0,_js_titleHeader__WEBPACK_IMPORTED_MODULE_6__[\"default\"])();\n  var audio = (0,_js_audio__WEBPACK_IMPORTED_MODULE_7__[\"default\"])();\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_task_requested', sidebar.finalizeAddTaskRequest);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_task_finalized', taskStore.addTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_task_finalized', cardShelf.addTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_task_finalized', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_task_finalized', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_circle', function (id) {\n    return taskStore.getTask(id).toggleIsCompleted();\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_circle', function (id) {\n    return cardShelf.removeTask(id);\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_circle', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_circle', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_circle', audio.playDing);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_card', addForm.collapse);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_card', taskStore.setActiveTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_card', cardShelf.setActiveTask);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_star', function (id) {\n    return taskStore.getTask(id).toggleIsImportant();\n  });\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_star', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_star', sidebar.requestUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('update_count_requested', taskStore.exposeStorageForUpdateCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('update_count_processed', sidebar.updateAllCount);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('update_cardShelf_requested', taskStore.exposeStorageForUpdateCardShelf);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('update_cardShelf_processed', cardShelf.rerender);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('update_header', titleHeader.rerender);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('active_iconName_requested', sidebar.exposeActiveIconName);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('active_iconName_exposed', titleHeader.switchToActiveIcon);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('contract_sidebar', titleHeader.switchToMenuIcon);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_list_requested', taskStore.exposeProcessedListName);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_list_processed', sidebar.setUpNewList);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('add_list_processed', taskStore.syncData);\n  _utils_pubSub__WEBPACK_IMPORTED_MODULE_8__[\"default\"].subscribe('click_active_sidebar', sidebar.clickActiveBtn); // Rerender card shelf when load from localStorage\n  taskStore.initStorage();\n  taskStore.initListStorage();\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/index.js?");
 
 /***/ }),
 
@@ -437,6 +437,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_pubSub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/pubSub */ \"./src/utils/pubSub.js\");\n/* harmony import */ var _components_Task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Task */ \"./src/js/components/Task.js\");\n\n // Constructor function for task obj\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {\n  // Cache DOM\n  var dateForm = document.querySelector('div.date-form');\n  var textInput = document.getElementById('add-task');\n  var dateInput = document.getElementById('add-date');\n  var addBtn = document.getElementById('submit-task-card');\n\n  // Method declaration\n  function collapse() {\n    dateForm.classList.remove('active');\n  }\n\n  // Event handlers\n  function handleInputChange() {\n    if (textInput.value.length) addBtn.classList.add('active');else addBtn.classList.remove('active');\n  }\n  function handleClickAdd() {\n    if (!textInput.value.length) return;\n    _utils_pubSub__WEBPACK_IMPORTED_MODULE_0__[\"default\"].publish('add_task_requested', new _components_Task__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n      taskName: textInput.value,\n      dueDate: dateInput.valueAsDate\n    }));\n    textInput.value = '';\n    dateInput.value = '';\n    handleInputChange();\n  }\n  function handleFocus() {\n    dateForm.classList.add('active');\n  }\n  function handleEnterDown(e) {\n    if (e.key === 'Enter') addBtn.click();\n  }\n  textInput.onkeydown = handleInputChange;\n  textInput.onkeyup = handleInputChange;\n  addBtn.onclick = handleClickAdd;\n  textInput.onfocus = handleFocus;\n  textInput.addEventListener('keydown', handleEnterDown); // onkeydown occupied by input change\n  dateInput.onkeydown = handleEnterDown;\n  return {\n    collapse: collapse\n  };\n});\n\n//# sourceURL=webpack://my-webpack-project/./src/js/addForm.js?");
+
+/***/ }),
+
+/***/ "./src/js/audio.js":
+/*!*************************!*\
+  !*** ./src/js/audio.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ audio)\n/* harmony export */ });\n/* harmony import */ var _assets_audio_ding_wav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/audio/ding.wav */ \"./src/assets/audio/ding.wav\");\n\nfunction audio() {\n  // Cache DOM\n  var bodyNode = document.querySelector('body');\n  var dingNode = document.createElement('audio');\n  dingNode.src = _assets_audio_ding_wav__WEBPACK_IMPORTED_MODULE_0__;\n  bodyNode.appendChild(dingNode);\n  function playDing() {\n    dingNode.currentTime = 0;\n    dingNode.play();\n  }\n  return {\n    playDing: playDing\n  };\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/js/audio.js?");
 
 /***/ }),
 
@@ -570,6 +580,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/assets/audio/ding.wav":
+/*!***********************************!*\
+  !*** ./src/assets/audio/ding.wav ***!
+  \***********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"abfe721e56b3422648d3.wav\";\n\n//# sourceURL=webpack://my-webpack-project/./src/assets/audio/ding.wav?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
@@ -639,6 +659,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -653,6 +685,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

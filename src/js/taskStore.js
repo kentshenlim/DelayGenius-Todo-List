@@ -1,5 +1,6 @@
 import parseISO from 'date-fns/parseISO';
 import pubSub from '../utils/pubSub';
+import Task from './components/Task';
 
 export default function taskStorage() {
   let storage = { }; // nanoid => task object
@@ -10,12 +11,16 @@ export default function taskStorage() {
   function init() {
     const data = JSON.parse(localStorage.getItem('delay-genius-storage'));
     if (!data) return;
-    // Restore the dueDate as date object; date object format lost to JSON.stringify
-    const values = Object.values(data);
-    for (let i = 0; i < values.length; i += 1) {
-      values[i].dueDate = parseISO(values[i].dueDate);
+    // Restore the dueDate as date object; date object format lost to
+    // JSON.stringify
+    // Also need to recreate all Task object because of methods lost
+    const keys = Object.keys(data);
+    const storageNew = {};
+    for (let i = 0; i < keys.length; i += 1) {
+      data[keys[i]].dueDate = parseISO(data[keys[i]].dueDate);
+      storageNew[keys[i]] = new Task(data[keys[i]]);
     }
-    storage = data;
+    storage = storageNew;
     pubSub.publish('update_count_requested', null);
     pubSub.publish('click_active_sidebar', null);
   }

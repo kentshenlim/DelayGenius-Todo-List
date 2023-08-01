@@ -35,9 +35,10 @@ function handleClickStar(e) {
   pubSub.publish('click_star', e.target.parentNode.getAttribute('data-id'));
 }
 
-export default function TaskCard({
-  taskName, dueDate, id, isImportant, isCompleted, isMyDay,
-}) {
+export default function TaskCard(obj) {
+  const {
+    taskName, dueDate, id, isImportant, isCompleted, isMyDay,
+  } = obj;
   /*
   taskName: string, task name displayed
   arr: Array of objects, [{displayString, colorString}]
@@ -76,6 +77,13 @@ export default function TaskCard({
 
   const listVar = dueDate ? [getDateFormatObj(dueDate)] : [];
   if (isMyDay) listVar.push({ disp: 'My Day', color: 'orange' });
+  const keys = Object.keys(obj); // Look for custom list
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i];
+    if (key.startsWith('is-list-')) {
+      listVar.push({ disp: `List: ${key.replace('is-list-', '')}`, color: 'green' });
+    }
+  }
   const list = TaskCardNote(listVar);
   details.appendChild(list);
 

@@ -71,6 +71,7 @@ li {
 /* App wrapper ---------------------------------------------------------------*/
 .app-wrapper {
   width: 100vw;
+  min-width: 600px;
   height: 100vh;
   background-color: var(--COLOR-BACKGROUND);
 }
@@ -129,6 +130,7 @@ main.content {
 /* Main center and form elements ---------------------------------------------*/
 div.content-center {
   flex-grow: 1;
+  flex-shrink: 1;
   background-color: var(--COLOR-ESC);
   align-items: stretch;
   padding-left: 1rem;

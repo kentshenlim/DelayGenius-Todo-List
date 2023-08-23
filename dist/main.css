@@ -409,6 +409,7 @@ button.task-card .task-card--details {
   overflow-y: auto;
   padding: 1rem;
   gap: 1rem;
+  display: none;
 }
 
 .content-detail > * {

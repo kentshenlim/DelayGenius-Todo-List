@@ -1,7 +1,7 @@
 # DelayGenius Todo List
 
 <p align="center">
-  <img src="./favicon.png" alt="reveal.js" width="500">
+  <img src="./favicon.png" alt="reveal.js" width="250">
 </p>
 
 To Do List app with Identicon mapped from task name. Features based on Microsoft
@@ -19,7 +19,7 @@ Todo.
   - [ ] Pop-up when the info icon is clicked
 - [Demo]()
 
-## Tools
+## Tools Used
 
 - [jdenticon](https://jdenticon.com/)
 - [date-fns](https://date-fns.org/)

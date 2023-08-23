@@ -13,7 +13,7 @@ Todo.
   - [ ] Details tab on the right-hand side
   - [ ] Dynamic layout
   - [ ] Pop-up when the info icon is clicked
-- [Demo]()
+- [Demo](https://delay-genius-todo-list.vercel.app/)
 
 ## Tools Used
 
